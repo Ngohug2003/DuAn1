@@ -1,170 +1,115 @@
+<?php
+    $hideSlideshow = false; // Mặc định hiển thị slideshow
+
+    // Kiểm tra nếu tham số act là dangnhap
+    if(isset($_GET['act']) && $_GET['act'] == 'dangnhap') {
+        $hideSlideshow = true; // Ẩn slideshow
+    }
+    if(isset($_GET['act']) && $_GET['act'] == 'dangki') {
+        $hideSlideshow = true; // Ẩn slideshow
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link href="assets/images/favicon.ico" type="img/x-icon" rel="shortcut icon"> -->
-    <script src="https://kit.fontawesome.com/8c204d0fdf.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/iconfont.min.css">
-    <link rel="stylesheet" href="assets/css/plugins.css">
-    <link rel="stylesheet" href="assets/css/helper.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-    <title>Trang chủ</title>
+    <link rel="stylesheet" href="assets/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="sty/sty.css">
+    <script src="assets/lib/bootstrap.bundle.min.js"></script>
+    <script src="assets/lib/font-fontawesome-ae333ffef2.js"></script>
+    <title>Laptop Shop</title>
 </head>
-
 <body>
-    <!--Header section start-->
-    <div id="main-wrapper">
-        <header class="header header-transparent header-sticky">
-            <div class="header-top">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div
-                            class="col-xl-6 col-lg-8 d-flex flex-wrap justify-content-lg-start justify-content-center align-items-center">
-                            <!--Links start-->
-                            <div class="header-top-links">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-phone"></i>(08) 123 456 7890</a></li>
-                                    <li><a href="#"><i class="fa fa-envelope-open-o"></i>yourmail@domain.com</a></li>
-                                </ul>
-                            </div>
-                            <!--Links end-->
-                        </div>
-                        <div class="col-xl-6 col-lg-4">
-                            <div class="ht-right d-flex justify-content-lg-end justify-content-center">
-                                <ul class="ht-us-menu d-flex">
-                                    <li><a href="#"><i class="fa fa-user-circle-o"></i>Login</a>
-                                        <ul class="ht-dropdown right">
-                                            <!-- <li><a href="compare.html">Compare Products</a></li> -->
-                                            <li><a href="my-account.html">My Account</a></li>
-                                            <!-- <li><a href="wishlist.html">My Wish List</a></li> -->
-                                            <li><a href="login-register.html">Sign In</a></li>
-                                            <!-- <li><a href="login-register.html">Sign In</a></li> -->
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
+    <!-- star header  -->
+        <div class="container">
+            <div>
+                <div class="navbar navbar-expand  d-flex justify-content-between ">    
+                    <ul class="navbar-nav text-black-50">
+                        <li class="nav-item ms-2 link-opacity-100-hover"><a class="nav-link text-black-50" href="#"><i class="fa-solid fa-phone"></i> 09888838111</a></li>
+                        <li class="nav-item ms-4"><a class="nav-link text-black-50" href="#"><i class="fa-solid fa-envelope"></i> ngohung@gmail.com</a></li>
+                    </ul>
+                    <ul class="navbar-nav text-black-50">
+                        <li class="nav-item me-3"><a class="nav-link text-black-50" href="index.php?act=dangnhap"><i class="fa-solid fa-user"></i>Login</a></li>
+                    </ul>
                 </div>
-            </div>
-            <div class="header-bottom menu-right">
-                <div class="container">
-                    <div class="row align-items-center">
-
-                        <!--Logo start-->
-                        <div class="col-lg-3 col-md-3 col-6 order-lg-1 order-md-1 order-1">
-                            <div class="logo">
-                                <a href="index.html"><img src="assets/images/logo.png" alt="logo TG shop"></a>
-                            </div>
-                        </div>
-                        <!--Logo end-->
-
-                        <!--Menu start-->
-                        <div
-                            class="col-lg-6 col-md-6 col-12 order-lg-2 order-md-2 order-3 d-flex justify-content-center">
-                            <nav class="main-menu">
-                                <ul>
-                                    <li><a href="index.html">Home</a>
-                                    </li>
-                                    <li><a href="shop.html">Shop</a>
-                                    <li><a href="blog.html">Blog</a>
-                                    </li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!--Menu end-->
-
-                        <!--Search Cart Start-->
-                        <div class="col-lg-3 col-md-3 col-6 order-lg-3 order-md-3 order-2 d-flex justify-content-end">
-                            <div class="header-search">
-                                <button class="header-search-toggle"><i class="fa fa-search"></i></button>
-                                <div class="header-search-form">
-                                    <form action="#">
-                                        <input type="text" placeholder="Type and hit enter">
-                                        <button><i class="fa fa-search"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="header-cart">
-                                <a href="cart.html"><i class="fa fa-shopping-cart"></i><span>3</span></a>
-                            </div>
-                        </div>
-                        <!--Search Cart End-->
-                    </div>
-
-                    <!--Mobile Menu start-->
-                    <div class="row">
-                        <div class="col-12 d-flex d-lg-none">
-                            <div class="mobile-menu"></div>
-                        </div>
-                    </div>
-                    <!--Mobile Menu end-->
-                </div>
-            </div>
-        </header>
-        <div class="hero-section section position-relative">
-            <div class="tf-element-carousel slider-nav" data-slick-options='{
-                "slidesToShow": 1,
-                "slidesToScroll": 1,
-                "infinite": true,
-                "arrows": true,
-                "dots": true
-            }' data-slick-responsive='[
-                {"breakpoint":768, "settings": {
-                "slidesToShow": 1
-                }},
-                {"breakpoint":575, "settings": {
-                "slidesToShow": 1,
-                "arrows": false,
-                "autoplay": true
-                }}
-            ]'>
-                <!--Hero Item start-->
-                <div class="hero-item bg-image" data-bg="./assets/images/hero/hero-2.jpg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <!--Hero Content start-->
-                                <div class="hero-content-2 color-2">
-                                    <h2>view our</h2>
-                                    <h1>Women's hair</h1>
-                                    <h3>Products now</h3>
-                                    <a href="shop.html">shop now</a>
-                                </div>
-                                <!--Hero Content end-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Hero Item end-->
-
-                <!--Hero Item start-->
-                <div class="hero-item bg-image" data-bg="./assets/images/hero/hero-9.jpg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <!--Hero Content start-->
-                                <div class="hero-content-2 color-2">
-                                    <h2>view our</h2>
-                                    <h1>Women's hair</h1>
-                                    <h3>Products now</h3>
-                                    <a href="shop.html">shop now</a>
-                                </div>
-                                <!--Hero Content end-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Hero Item end-->
             </div>
         </div>
-        <!--slider section end-->
+        <div style="height: 1px;" class="container-fluid border " ></div>
+        <!-- star menu  --> 
+        <div class="container">
+            <!-- <div class="collapse navbar-collapse "></div> -->
+                <div class="navbar navbar-expand-lg text-black-50 d-flex justify-content-between">    
+                    <a href="index.php"><img style="width: 70px;" class="img-thumbnail" src="assets/img/lgoo.jpg" alt="Logo"></a>
+                   
+                    <div class="navbar-nav ">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item ms-2  ">
+                                <a class="nav-link " href="">Menu</a>
+                            </li>
+                            <li class="nav-item ms-2  ">
+                                <a class="nav-link " href="">Shop</a>
+                            </li>
+                            <li class="nav-item ms-2  ">
+                                <a class="nav-link " href="">Blog</a>
+                            </li>
+                            <li class="nav-item ms-2  ">
+                                <a class="nav-link " href="">About Us</a>
+                            </li>
+                            <li class="nav-item  ms-2 ">
+                                <a class="nav-link " href="">Contact US</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div   class="navbar-nav me-4 ">
+                        
+                       <form  class="input-group me-4 rounded-5" >
+                        <input class="form-control"  style=" height: 40px; " type="text" name="" id="">
+                        <button class="btn border " style="width: 40px; height: 40px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                       </form>
+                        <a style="position: relative;"  href="#" class="btn-lg border rounded-5  "><button class=" border rounded-5" style="width: 40px; height: 40px;"><i class="fa-solid fa-cart-shopping"></i> <span id="cartItemCount" style="position: absolute; top: -7px;" class="badge bg-secondary">0</span></button></a>
+                        
+                        
+                    </div>
+                </div>
+             
+        </div>
+        <!-- end menu -->
+    <!-- end header  -->
+    <!-- star banner -->
+    <?php if(!$hideSlideshow): ?>
+    <!-- <div>
+        <img src="img/hero-1.jpg" class="img-fluid" alt="...">
+    </div> -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+        
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/img/banner1.jpg" alt="Los Angeles" class="d-block" style="width:100%">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/banner1.jpg" alt="Chicago" class="d-block" style="width:100%">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/banner1.jpg" alt="New York" class="d-block" style="width:100%">
+          </div>
+        </div>
+        
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    <?php endif; ?>
+    <!-- end banner -->
