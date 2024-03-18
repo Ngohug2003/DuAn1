@@ -52,7 +52,7 @@
             <div class="d-flex justify-content-between  text-white mt-4 ">
                 <div>Copyright ©2024 FPT Polytechnic</div>
                 <div>
-                    <a href="#"><img style="width: 70px;" class="img-thumbnail" src="assets/img/lgoo.jpg" alt="Logo"></a>
+                    <a href="#"><img style="width: 70px; border-radius: 50%;" class="img-thumbnail" src="../views/assets/img/logo_computer.png" alt="Logo"></a>
                 </div>
             </div>
         </div>

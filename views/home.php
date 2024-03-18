@@ -6,7 +6,7 @@
             <div class="border border rounded overflow-hidden  mt-3 mb-3">
                 <!-- kv ảnh   -->
                 <div style="height: 300px;" class="bg-light d-flex align-items-center justify-content-center">
-                    <img src="./img/san-pham_ao-blazer-01.jpeg" class="mh-100 mw-100" alt=" ">
+                    <img src="../views/assets/img/product-10.jpg" class="mh-100 mw-100" alt=" ">
                 </div>
                 <!-- kv tên sản phẩm  -->
                 <div class="m-2">
@@ -36,7 +36,7 @@
             <div class="border border rounded overflow-hidden  mt-3 mb-3">
                 <!-- kv ảnh   -->
                 <div style="height: 300px;" class="bg-light d-flex align-items-center justify-content-center">
-                    <img src="./img/san-pham_ao-blazer-01.jpeg" class="mh-100 mw-100" alt=" ">
+                    <img src="../views/assets/img/product-10.jpg" class="mh-100 mw-100" alt=" ">
                 </div>
                 <!-- kv tên sản phẩm  -->
                 <div class="m-2">
