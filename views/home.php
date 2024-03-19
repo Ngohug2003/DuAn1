@@ -1,6 +1,7 @@
 <div class="container">
     <h3 class="text-center mt-3">Sản phẩm nổi bật</h3>
     <div class="row">
+    <?php foreach($listsanpham as $sptop):?>
         <div class="col-3">
             <!-- box hiển thị sản phẩm  -->
             <div class="border border rounded overflow-hidden  mt-3 mb-3">
@@ -10,20 +11,21 @@
                 </div>
                 <!-- kv tên sản phẩm  -->
                 <div class="m-2">
-                    <h1 style="height: 48px;" class="h6">Sản phẩm 1 Sản phẩm 1 </h1>
+                    <h1 style="height: 20px;" class="h6"><?php echo $sptop['name_sanpham']?></h1>
+                    <span><?php echo $sptop['subtitle_sanpham']?></span>
                     <!-- kv giá sản phẩm  -->
-                    <div class="d-flex  justify-content-between ">
-                        <div class="text-decoration-line-through">1,000,000</div>
-                        <div style="font-weight: 600;">800,000</div>
+                    <div class="d-flex  justify-content-between "> 
+                        <div style="color: red;"><?php echo $sptop['gia_sanpham']?> VND</div>
                     </div>
                     <!-- kv button tương tác -->
 
-                    <button class="btn  w-100 rounded-pill">Mua ngay</button>
+                    <a href="" class="btn btn-success w-100 rounded-pill">Thông tin chi tiết</a>
                 </div>
 
             </div>
 
         </div>
+        <?php endforeach?>
 
 
     </div>
@@ -31,6 +33,7 @@
 <div class="container">
     <h3 class="text-center mt-3">Sản phẩm mới nhất</h3>
     <div class="row">
+        <?php foreach($sanpham as $sp):?>
         <div class="col-3">
             <!-- box hiển thị sản phẩm  -->
             <div class="border border rounded overflow-hidden  mt-3 mb-3">
@@ -40,20 +43,21 @@
                 </div>
                 <!-- kv tên sản phẩm  -->
                 <div class="m-2">
-                    <h1 style="height: 48px;" class="h6">Sản phẩm 1 Sản phẩm 1 </h1>
+                    <h1 style="height: 20px;" class="h6"><?php echo $sp['name_sanpham']?></h1>
+                    <span><?php echo $sp['subtitle_sanpham']?></span>
                     <!-- kv giá sản phẩm  -->
                     <div class="d-flex  justify-content-between ">
-                        <div class="text-decoration-line-through">1,000,000</div>
-                        <div style="font-weight: 600;">800,000</div>
+                        <div style="color: red;"><?php echo $sp['gia_sanpham']?> VND</div>
                     </div>
                     <!-- kv button tương tác -->
 
-                    <button class="btn  w-100 rounded-pill">Mua ngay</button>
+                    <a href="" class="btn btn-success w-100 rounded-pill">Thông tin chi tiết</a>
                 </div>
 
             </div>
 
         </div>
+        <?php endforeach?>
 
 
     </div>

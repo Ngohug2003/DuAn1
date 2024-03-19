@@ -13,6 +13,10 @@ function dangxuat(){
 
     }
 }
+function addUser($username, $password){
+    $sql = "INSERT INTO users (username_user,password_user) VALUES ('$username','$password')";
+     pdo_execute($sql);
+}
 
 
 

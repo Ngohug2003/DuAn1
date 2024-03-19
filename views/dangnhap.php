@@ -23,7 +23,7 @@
                   <input type="submit" class="btn bg-yellowhung text-uppercase text-white me-3" value="Đăng nhập" name="dangnhap">
                     <p class="mt-3">
                         
-                        <a href="index.php?act=dangki" class="text-yellowhung nav-link"> Don't have an account?Sign up</a>
+                        <a href="index.php?act=dangky" class="text-yellowhung nav-link"> Don't have an account?Sign up</a>
                     </p>
                   </form>
              </div>

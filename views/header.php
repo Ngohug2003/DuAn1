@@ -76,9 +76,9 @@
                     </div>
                     <div   class="navbar-nav me-4 ">
                         
-                       <form  class="input-group me-4 rounded-5" >
-                        <input class="form-control"  style=" height: 40px; " type="text" name="" id="">
-                        <button class="btn border " style="width: 40px; height: 40px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                       <form action="index.php?act=timkiem" method="post"  class="input-group me-4 rounded-5"  >
+                        <input class="form-control"  style=" height: 40px; " type="text" name="keyword" id="">
+                        <button name="search" type="submit" class="btn border " style="width: 40px; height: 40px;"><i class="fa-solid fa-magnifying-glass"></i></button>
                        </form>
                         <a style="position: relative;"  href="#" class="btn-lg border rounded-5  "><button class=" border rounded-5" style="width: 40px; height: 40px;"><i class="fa-solid fa-cart-shopping"></i> <span id="cartItemCount" style="position: absolute; top: -7px;" class="badge bg-secondary">0</span></button></a>
                         
