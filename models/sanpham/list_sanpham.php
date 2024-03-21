@@ -1,5 +1,4 @@
 <?php
-
 function getListSanPham(){
     $sql = "SELECT * FROM `sanpham` WHERE 1";
     $sanpham = pdo_query($sql);

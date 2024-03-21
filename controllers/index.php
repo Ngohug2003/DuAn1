@@ -4,31 +4,38 @@ ob_start();
 include "../models/connect.php";
 include "../models/user/taikhoan.php";
 include "../models/sanpham/list_sanpham.php";
+include "../models/danhmuc/listDanhMuc.php";
 include "../views/header.php";
 $sanpham = getListSanPham();
 $listsanpham = getListSanPham_noibat();
+$danhmuc = getListDanhMuc();
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
-        case 'dangnhap':
-            if (isset($_POST['dangnhap']) && $_POST['dangnhap']) {
-                $username = $_POST['username'];
-                $password = $_POST['password'];
-                $check_user = check_user($username, $password);
-                if (is_array($check_user)) {
-                    $_SESSION['username'] = $check_user;
-                    // check role để vào admin 
-                    if ($check_user['role'] == 1) {
-                        header('Location:admin/index.html');
-                    } else {
-                        header('Location:index.php');
-                    }
-                } else {
-                    $thongbao = "<script>alert('Username hoặc password không chính xác! Vui lòng kiểm tra lại.')</script>";
-                }
-            }
+        case 'login_signUp':
+            
             include "../views/dangnhap.php";
             break;
+            case 'dangnhap':
+                if (isset($_POST['dangnhap']) && $_POST['dangnhap']) {
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $check_user = check_user($username, $password);
+                    if (is_array($check_user)) {
+                        $_SESSION['username'] = $check_user;
+                        // check role để vào admin 
+                        if ($check_user['role'] == 1) {
+                            header('Location:admin/index_admin.php');
+                            
+                        } else {
+                            header('Location:index.php');
+                        }
+                    } else {
+                        $thongbao = "<script>alert('Username hoặc password không chính xác! Vui lòng kiểm tra lại.')</script>";
+                    }
+                }
+                include "../views/dangnhap.php";
+                break;
         case 'dangxuat':
             dangxuat();
             include "../views/home.php";
@@ -39,7 +46,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             if(isset($_POST['dangky']) && $_POST['dangky']){
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-                $passowrd_comfirm = $_POST['passowrd_comfirm'];
+                // $passowrd_comfirm = $_POST['passowrd_comfirm'];
 
                 if(empty($username)){
                     $error['username'] = "vui lòng nhập tài khoản";
@@ -47,9 +54,9 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 if(empty($password)){
                     $error['password'] = "vui lòng nhập mật khẩu";
                 }
-                if($password != $passowrd_comfirm ){
-                    $error = "Mật khẩu không khớp";
-                }
+                // if($password != $passowrd_comfirm ){
+                //     $error = "Mật khẩu không khớp";
+                // }
                 if(!$error){
                     addUser($username, $password);
                     $thongbao = "<script language='javascript'>alert('Đăng kí tài khoản thành công')
@@ -57,7 +64,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 }
 
             }
-            include "../views/dangky.php";
+            include "../views/dangnhap.php";
             break;
         case 'timkiem':
             if (isset($_POST['keyword']) && $_POST['keyword'] != 0) {
