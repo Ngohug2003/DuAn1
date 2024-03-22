@@ -26,11 +26,17 @@
                             <div class="widget_list widget_manu">
                                 <h3>Danh mục </h3>
                                 <ul>
-                                    <?php foreach ($danhmuc as $dm):?>
-                                    <li>
-                                        <a href="#"><?= $dm['name_danhmuc']?></a> 
-                                    </li>
-                                    <?php endforeach?>
+                                    <?php foreach ($danhmuc as $dm){
+                                        extract($dm);
+                                        $linkDanhMuc = "index.php?act=timkiem&id_danhmuc=".$id_danhmuc;
+                                        echo '<li>
+                                        <a href="'.$linkDanhMuc.'">'.$name_danhmuc.'</a> 
+                                    </li>';
+                                }
+                                    ?>
+                                    
+                                    
+                
                                 
                                 </ul>
                             </div>
@@ -66,11 +72,12 @@
                     </div>
                      <!--shop toolbar end-->
                      <div class="row shop_wrapper">
+                        <?php foreach($dssp as $sp):?>
                         <div class="col-lg-4 col-md-4 col-12 ">
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
+                                        <a class="primary_img" href="chitietsanpham.html"><img src="../views/assets/img/product/<?=$sp['image_sanpham']?>" alt=""></a>
                                         <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
                                         <div class="action_links">
                                             <ul>
@@ -82,15 +89,15 @@
                                         </div>
                                     </div>
                                     <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
+                                        <div style="height: 80px;" class="product_content-header">
+                                            <h4 class="product_name"><a href="chitietsanpham.html"><?=$sp['name_sanpham']?></a></h4>
                                             <div class="wishlist-btn">
                                                 <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
                                             </div>
                                         </div>
                                         <div class="product_price_rating">
                                             <div class="price_box"> 
-                                                <span class="current_price">$210</span>
+                                                <span class="current_price"><?=$sp['gia_sanpham']?></span>
                                             </div>
                                           
                                        </div>
@@ -99,369 +106,7 @@
                                 </figure>
                             </article>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-12 ">
-                            <article class="single_product">
-                                <figure>
-                                    <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="assets/img/product/product24.jpg" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
-                                        <div class="action_links">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i class="zmdi zmdi-refresh"></i></a></li>
-
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product_content grid_content">
-                                        <div class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html">Áo nữ abc</a></h4>
-                                            <div class="wishlist-btn">
-                                                <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product_price_rating">
-                                            <div class="price_box"> 
-                                                <span class="current_price">$210</span>
-                                            </div>
-                                          
-                                       </div>
-                                    </div>
-                                 
-                                </figure>
-                            </article>
-                        </div>
+                    <?php endforeach?>
                     </div>
 
                     <div class="shop_toolbar t_bottom">

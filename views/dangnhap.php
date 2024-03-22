@@ -26,6 +26,7 @@
                         <p>
                             <label>Tên tài khoản<span>*</span></label>
                             <input name="username">
+                            <span style="color: red"><?php echo isset($error["username"]) ? $error["username"] : '' ?></span>
                         </p>
                         <p>
                             <label>Mật khẩu<span>*</span></label>
@@ -35,57 +36,40 @@
                             <a href="#">Quên mật khẩu</a>
                             <!-- <button name="dangnhap" type="submit">Đăng nhập</button> -->
                             <input type="submit" style="background-color: #09c6ab;" class="btn bg-yellowhung text-uppercase text-white me-3" value="Đăng nhập" name="dangnhap">
-
+                            <span style="color: red"><?php echo isset($error["password"]) ? $error["password"] : '' ?></span>
                         </div>
 
                     </form>
-                    <!-- thử test  -->
-                    <!-- <form action="index.php?act=dangnhap" method="post" class="border border-dark-subtle rounded p-5 justify-content-center ">
-                    <h2>Login</h2>
-                    <div class="mb-3 mt-3">
-                      <label  class="form-label">Tên đăng nhập:</label>
-                      <input class="form-control" name="username"  >
-                    </div>
-                    <div class="mb-3">
-                      <label for="pwd" class="form-label">Password:</label>
-                      <input type="password" class="form-control " name="password">
-                      <a href="" class="text-yellowhung nav-link">Forgot Password ?</a>
-                    </div> 
-                  <input type="submit" style="background-color: red;" class="btn bg-yellowhung text-uppercase text-white me-3" value="Đăng nhập" name="dangnhap">
-                    <p class="mt-3">
-                        
-                        <a href="index.php?act=dangky" class="text-yellowhung nav-link"> Don't have an account?Sign up</a>
-                    </p>
-                  </form> -->
+    
                 </div>
             </div>
-            <!--  -->
-
-
-            <!--login area start-->
-
             <!--register area start-->
             <div class="col-lg-6 col-md-6">
                 <div class="account_form register">
                     <h2>Đăng kí</h2>
                     <form action="index.php?act=dangky" method="post">
-                        <!-- <p>
+                        <p>
                             <label>Email<span>*</span></label>
-                            <input type="email">
-                        </p> -->
+                            <input name="email" type="email">
+                            <span style="color: red"><?php echo isset($error["email"]) ? $error["email"] : '' ?></span>
+                        </p>
                         <p>
                             <label>Tên tài khoản<span>*</span></label>
                             <input type="text" name="username">
+                            <span style="color: red"><?php echo isset($error["username"]) ? $error["username"] : '' ?></span>
                         </p>
 
                         <p>
                             <label>Mật khẩu <span>*</span></label>
                             <input type="password" name="password">
+                            <span style="color: red"><?php echo isset($error["password"]) ? $error["password"] : '' ?></span>
                         </p>
-                        <!-- <p>
-                            <label>Số điện thoại <span>*</span></label>
-                            <input type="number">
-                        </p> -->
+                        <p>
+                            <label>Xác nhận mật khẩu <span>*</span></label>
+                            <input type="password" name="password_confirm">
+                            <span style="color: red"><?php echo isset($error["password_confirm"]) ? $error["password_confirm"] : '' ?></span>
+                        </p>
+                       
                         <div class="login_submit">
                         <input type="submit" style="background-color: #09c6ab;" class="btn bg-yellowhung text-uppercase text-white me-3" value="Đăng Ký" name="dangky">
                         </div>

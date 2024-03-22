@@ -22,7 +22,7 @@
                                 <article class="single_product">
                                     <figure>
                                         <div class="product_thumb">
-                                            <a class="primary_img" href="product-details.html"><img  src="../views/assets/img/product/<?php echo $sp['image_sanpham']?>" alt=""></a>
+                                            <a class="primary_img" href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham']?>"><img  src="./views/assets/img/product/<?php echo $sp['image_sanpham']?>" alt=""></a>
                                             <div class="action_links">
                                                 <ul>
                                                     <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
@@ -31,10 +31,10 @@
                                             </div>
                                         </div>
                                         <figcaption class="product_content">
-                                           <div class="product_content-header">
-                                                <h4 class="product_name"><a href="product-details.html"><?php echo $sp['name_sanpham']?></a></h4>
+                                           <div style="height: 50px;" class="product_content-header">
+                                                <h4 class="product_name"><a href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham']?>"><?php echo $sp['name_sanpham']?></a></h4>
                                                 <div class="wishlist-btn">
-                                                    <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
+                                                    <a href=""><i class="zmdi zmdi-favorite-outline"></i></a>
                                                 </div>
                                             </div>
                                             <div class="product_price_rating">
@@ -58,13 +58,13 @@
     <!--product area end-->
     
     <!--banner fullwidth start-->
-    <div class="banner_fullwidth mb-70" data-bgimg="../views/assets/img/bg/img_banner.png">
+    <div class="banner_fullwidth mb-70" data-bgimg="./views/assets/img/bg/img_banner.png">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="banner-text">
                      
-                        <p>DAM Computer là nơi bán máy tính laptop uy tin chất lượng nhất ..... với giá cả phù hợp </p>
+                        <p>DAM Computer là nơi bán máy tính laptop uy tin chất lượng nhất .. với giá cả phù hợp </p>
                         <a href="shop.html">Xem chi tiết</a>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                                 <article class="single_product">
                                     <figure>
                                         <div class="product_thumb">
-                                            <a class="primary_img" href="product-details.html"><img  src="../views/assets/img/product/<?php echo $sptop['image_sanpham']?>" alt=""></a>
+                                            <a class="primary_img" href="product-details.html"><img  src="./views/assets/img/product/<?php echo $sptop['image_sanpham']?>" alt=""></a>
                                             <div class="action_links">
                                                 <ul>
                                                     <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>

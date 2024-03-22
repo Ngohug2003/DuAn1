@@ -2,7 +2,7 @@
 $hideSlideshow = false; // Mặc định hiển thị slideshow
 
 // Kiểm tra nếu tham số act là dangnhap
-if (isset($_GET['act']) && $_GET['act'] == 'dangnhap') {
+if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chitietsanpham' || $_GET['act'] == 'dangky')) {
     $hideSlideshow = true; // Ẩn slideshow
 }
 ?>
@@ -21,30 +21,30 @@ if (isset($_GET['act']) && $_GET['act'] == 'dangnhap') {
     <!-- CSS 
     ========================= -->
     <!--bootstrap min css-->
-    <link rel="stylesheet" href="../views/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./views/assets/css/bootstrap.min.css">
     <!--owl carousel min css-->
-    <link rel="stylesheet" href="../views/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./views/assets/css/owl.carousel.min.css">
     <!--slick min css-->
-    <link rel="stylesheet" href="../views/assets/css/slick.css">
+    <link rel="stylesheet" href="./views/assets/css/slick.css">
     <!--magnific popup min css-->
-    <link rel="stylesheet" href="../views/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="./views/assets/css/magnific-popup.css">
     <!--font awesome css-->
-    <link rel="stylesheet" href="../views/assets/css/font.awesome.css">
+    <link rel="stylesheet" href="./views/assets/css/font.awesome.css">
     <!--ionicons min css-->
-    <link rel="stylesheet" href="../views/assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="./views/assets/css/ionicons.min.css">
     <!--material design min css-->
-    <link rel="stylesheet" href="../views/assets/css/material.design.min.css">
+    <link rel="stylesheet" href="./views/assets/css/material.design.min.css">
     <!--animate css-->
-    <link rel="stylesheet" href="../views/assets/css/animate.css">
+    <link rel="stylesheet" href="./views/assets/css/animate.css">
     <!--jquery ui min css-->
-    <link rel="stylesheet" href="../views/assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="./views/assets/css/jquery-ui.min.css">
     <!--slinky menu css-->
-    <link rel="stylesheet" href="../views/assets/css/slinky.menu.css">
+    <link rel="stylesheet" href="./views/assets/css/slinky.menu.css">
     <!--plugins css-->
-    <link rel="stylesheet" href="../views/assets/css/plugins.css">
+    <link rel="stylesheet" href="./views/assets/css/plugins.css">
 
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="../views/assets/css/style.css">
+    <link rel="stylesheet" href="./views/assets/css/style.css">
 
     <!--modernizr min js here-->
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
@@ -59,7 +59,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'dangnhap') {
                     <div class="row align-items-center">
                         <div class="col-lg-3">
                             <div class="logo">
-                                <a href="index.php"><img style="height: 60px;" src="../views/assets/img/logo/logo_computer.png" alt=""></a>
+                                <a href="index.php"><img style="height: 60px;" src="./views/assets/img/logo/logo_computer.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-9">
@@ -68,14 +68,16 @@ if (isset($_GET['act']) && $_GET['act'] == 'dangnhap') {
                                 <div class="main_menu menu_position">
                                     <nav>
                                         <ul>
-                                            <li><a href="index.html">Trang Chủ</a>
+                                            <li><a href="index.php">Trang Chủ</a>
 
                                             </li>
                                             <li><a href="index.php?act=timkiem">Sản Phẩm<i class="fa fa-angle-down"></i></a>
                                                 <ul class="sub_menu pages">
-                                                    <li><a href="blog-details.html">Quần Áo</a></li>
-                                                    <li><a href="blog-fullwidth.html">Túi Xách</a></li>
-                                                    <li><a href="blog-sidebar.html">Phụ Kiện</a></li>
+                                              
+                                                    <li><a href="index.php?act=timkiem&id_danhmuc=1">Macbook</a></li>
+                                                    <li><a href="index.php?act=timkiem&id_danhmuc=2">HP</a></li>
+                
+                                                  
                                                 </ul>
                                             </li>
                                             <li><a href="#">Tin tức</a>
@@ -88,15 +90,15 @@ if (isset($_GET['act']) && $_GET['act'] == 'dangnhap') {
                                 <!--main menu end-->
                                 <div class="header_right_info">
                                     <ul>
-                                        <li class="search_box"><a href="javascript:void(0)"><img src="../views/assets/img/icon/icon-search.png" alt=""></a>
+                                        <li class="search_box"><a href="javascript:void(0)"><img src="./views/assets/img/icon/icon-search.png" alt=""></a>
                                             <div class="search_widget">
                                                 <form action="index.php?act=timkiem" method="post">
-                                                    <input placeholder="Tìm kiếm sản phẩm..." type="text">
+                                                    <input name="keyword" placeholder="Tìm kiếm sản phẩm.." type="text">
                                                     <button name="search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                                 </form>
                                             </div>
                                         </li>
-                                        <li class="header_account"><a href="javascript:void(0)"><img src="../views/assets/img/icon/icon-account.png" alt=""></a>
+                                        <li class="header_account"><a href="javascript:void(0)"><img src="./views/assets/img/icon/icon-account.png" alt=""></a>
                                             <div class="dropdown_account">
                                                 <div class="dropdown_account-list">
                                                     <ul>
@@ -121,13 +123,13 @@ if (isset($_GET['act']) && $_GET['act'] == 'dangnhap') {
                                 </div>
                             </div>
                             </li>
-                            <li class="mini_cart_wrapper"><a href="javascript:void(0)"><img src="../views/assets/img/icon/icon-cart.png" alt=""> <span class="item_count">2</span></a>
+                            <li class="mini_cart_wrapper"><a href="javascript:void(0)"><img src="./views/assets/img/icon/icon-cart.png" alt=""> <span class="item_count">2</span></a>
                                 <!--mini cart-->
                                 <div class="mini_cart">
                                     <div class="cart_gallery">
                                         <div class="cart_item">
                                             <div class="cart_img">
-                                                <a href="#"><img src="../views/assets/img/s-product/product.jpg" alt=""></a>
+                                                <a href="#"><img src="./views/assets/img/s-product/product.jpg" alt=""></a>
                                             </div>
                                             <div class="cart_info">
                                                 <a href="#">Áo abc</a>
@@ -139,7 +141,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'dangnhap') {
                                         </div>
                                         <div class="cart_item">
                                             <div class="cart_img">
-                                                <a href="#"><img src="../views/assets/img/s-product/product2.jpg" alt=""></a>
+                                                <a href="#"><img src="./views/assets/img/s-product/product2.jpg" alt=""></a>
                                             </div>
                                             <div class="cart_info">
                                                 <a href="#">Túi abc</a>
@@ -202,7 +204,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'dangnhap') {
     <?php if (!$hideSlideshow) : ?>
         <section class="slider_section">
             <div class="slider_area slider_one_area owl-carousel">
-                <div class="single_slider d-flex align-items-center" data-bgimg="../views/assets/img/slider/banner_mackook.jpg">
+                <div class="single_slider d-flex align-items-center" data-bgimg="./views/assets/img/slider/banner_mackook.jpg">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-7">
@@ -216,7 +218,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'dangnhap') {
                     </div>
 
                 </div>
-                <div class="single_slider single_slider2 d-flex align-items-center" data-bgimg="../views/assets/img/slider/banner_mackook.jpg">
+                <div class="single_slider single_slider2 d-flex align-items-center" data-bgimg="./views/assets/img/slider/banner_mackook.jpg">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-7 offset-lg-5 col-md-7 offset-md-5 col-sm-7 offset-sm-5">

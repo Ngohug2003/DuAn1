@@ -54,7 +54,7 @@
                                     <h3>Đăng kí</h3>
                                     <div class="subscribe_form">
                                         <form id="mc-form" class="mc-form footer-newsletter" >
-                                            <input id="mc-email" type="email" autocomplete="off" placeholder="Emali của bạn ..." />
+                                            <input id="mc-email" type="email" autocomplete="off" placeholder="Emali của bạn .." />
                                             <button id="mc-submit"><i class="zmdi zmdi-email-open"></i></button>
                                         </form>
                                         <!-- mailchimp-alerts Start -->
@@ -93,34 +93,34 @@
 <!-- JS
 ============================================ -->
 <!--jquery min js-->
-<script src="../views/assets/js/vendor/jquery-3.4.1.min.js"></script>
+<script src="./views/assets/js/vendor/jquery-3.4.1.min.js"></script>
 <!--popper min js-->
-<script src="../views/assets/js/popper.js"></script>
+<script src="./views/assets/js/popper.js"></script>
 <!--bootstrap min js-->
-<script src="../views/assets/js/bootstrap.min.js"></script>
+<script src="./views/assets/js/bootstrap.min.js"></script>
 <!--owl carousel min js-->
-<script src="../views/assets/js/owl.carousel.min.js"></script>
+<script src="./views/assets/js/owl.carousel.min.js"></script>
 <!--slick min js-->
-<script src="../views/assets/js/slick.min.js"></script>
+<script src="./views/assets/js/slick.min.js"></script>
 <!--magnific popup min js-->
-<script src="../views/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="./views/assets/js/jquery.magnific-popup.min.js"></script>
 <!--counterup min js-->
-<script src="../views/assets/js/jquery.counterup.min.js"></script>
+<script src="./views/assets/js/jquery.counterup.min.js"></script>
 <!--jquery countdown min js-->
-<script src="../views/assets/js/jquery.countdown.js"></script>
+<script src="./views/assets/js/jquery.countdown.js"></script>
 <!--jquery ui min js-->
-<script src="../views/assets/js/jquery.ui.js"></script>
+<script src="./views/assets/js/jquery.ui.js"></script>
 <!--jquery elevatezoom min js-->
-<script src="../views/assets/js/jquery.elevatezoom.js"></script>
+<script src="./views/assets/js/jquery.elevatezoom.js"></script>
 <!--isotope packaged min js-->
-<script src="../views/assets/js/isotope.pkgd.min.js"></script>
+<script src="./views/assets/js/isotope.pkgd.min.js"></script>
 <!--slinky menu js-->
-<script src="../views/assets/js/slinky.menu.js"></script>
+<script src="./views/assets/js/slinky.menu.js"></script>
 <!-- Plugins JS -->
-<script src="../views/assets/js/plugins.js"></script>
+<script src="./views/assets/js/plugins.js"></script>
 
 <!-- Main JS -->
-<script src="../views/assets/js/main.js"></script>
+<script src="./views/assets/js/main.js"></script>
 
 
 

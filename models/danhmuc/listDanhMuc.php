@@ -1,10 +1,17 @@
 <?php
 
 function getListDanhMuc(){
-    $sql = "SELECT * FROM `danhmuc` WHERE 1";
+    $sql = "SELECT * FROM danhmuc ";
     $danhmuc = pdo_query($sql);
     return $danhmuc;
 }
+function getOneDanhMuc($id_sanpham){
+    $sql = "SELECT id_danhmuc FROM sanpham WHERE id_danhmuc = ".$id_sanpham ;
+    $getOneDanhMuc = pdo_query_one($sql);
+    extract($getOneDanhMuc);
+    return $id_danhmuc;
+}
+
 // function getListSanPham_noibat(){
 //     $sql = "select * from sanpham  order by luotxem_sanpham desc limit 0,4";
 //     $listsanpham = pdo_query($sql);
