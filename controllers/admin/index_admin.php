@@ -1,6 +1,7 @@
 <?php
 session_start();
 ob_start();
+include ".././../global.php";
 include "../../models/connect.php";
 include "../../models/user/taikhoan.php";
 include "../../models/sanpham/list_sanpham.php";
@@ -57,23 +58,56 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
 
             // update danh mục 
-            case 'update':
-                $error = [];
-                if (isset($_POST['update']) && ($_POST['update'])) {
-                    $name_danhmuc = $_POST['name_danhmuc'];
-                    $id_danhmuc = $_POST['id_danhmuc'];
-                    update_danhmuc($id_danhmuc, $name_danhmuc);
-                    $dm = loadone_danhmuc($id_danhmuc);
-                    $thongbao = "Cập nhật thành công"; // Success message
-                    // Set JavaScript variable containing the success message
-                    echo "<script>var successMessage = '$thongbao';</script>";
-                }
-                $danhmuc =  getListDanhMuc();
-                include "../admin/danhmuc/edit.php";
-                break;
+        case 'update':
+            $error = [];
+            if (isset($_POST['update']) && ($_POST['update'])) {
+                $name_danhmuc = $_POST['name_danhmuc'];
+                $id_danhmuc = $_POST['id_danhmuc'];
+                update_danhmuc($id_danhmuc, $name_danhmuc);
+                $dm = loadone_danhmuc($id_danhmuc);
+                $thongbao = "Cập nhật thành công"; // Success message
+                // Set JavaScript variable containing the success message
+                echo "<script>var successMessage = '$thongbao';</script>";
+            }
+            $danhmuc =  getListDanhMuc();
+            include "../admin/danhmuc/edit.php";
+            break;
 
 
             // end danh mục
+
+
+            // bắt đầu sản phẩm  
+
+        case 'sanpham':
+            $sanpham = getListSanPham();
+            include "./danhsach/sanpham.php";
+            break;
+        case 'add_sanpham':
+            $danhmuc =  getListDanhMuc();
+            $error = [];
+            if (isset($_POST['add_sanpham']) && ($_POST['add_sanpham'])){
+                $name_sanpham = $_POST['name_sanpham'];
+                $gia_sanpham = $_POST['gia_sanpham'];
+                $subtitle_sanpham = $_POST['subtitle_sanpham'];
+                $description_sanpham = $_POST['description_sanpham'];
+                $id = $_POST['id'];
+                $filename = $_FILES['image_sanpham']['name'];
+                $target_dir = "../../views/assets/img/product" ;
+                $target_file = $target_dir . basename($_FILES['image_sanpham']['name']);
+                if(empty($filename)){
+                    $error['image_sanpham'] = "chưa upload";
+                }else {
+                    if (move_uploaded_file($_FILES["image_sanpham"]["tmp_name"], $target_file)) {
+                    } else {
+                    }
+                    add_sanpham($name_sanpham, $gia_sanpham, $filename, $subtitle_sanpham,$description_sanpham,$id);
+                    $thongbao = "Thêm thành công";
+                }
+            }
+           
+            include "./danhsach/add_sanpham.php";
+            break;
     }
 } else {
     include "../admin/home.php";

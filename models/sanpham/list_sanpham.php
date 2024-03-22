@@ -1,4 +1,9 @@
 <?php
+// function getListSanPham(){
+//     $sql = "SELECT * FROM sanpham inner join danhmuc on sanpham.id_danhmuc = danhmuc.id_danhmuc " ;
+//     $sanpham = pdo_query($sql);
+//     return $sanpham;
+// }
 function getListSanPham(){
     $sql = "SELECT * FROM sanpham inner join danhmuc on sanpham.id_danhmuc = danhmuc.id_danhmuc " ;
     $sanpham = pdo_query($sql);
@@ -32,6 +37,10 @@ function search_sanpham($keyword = "",$id_danhmuc = 0){
     $sql .= " order by id_sanpham desc";
     $dssp = pdo_query($sql);
     return  $dssp;
+}
+function add_sanpham($name_sanpham, $gia_sanpham, $image_sanpham, $subtitle_sanpham,$description_sanpham,$id){
+    $sql = "insert into sanpham(name_sanpham, gia_sanpham, image_sanpham, subtitle_sanpham, description_sanpham,id_danhmuc) values('$name_sanpham', '$gia_sanpham', '$image_sanpham', '$subtitle_sanpham', '$description_sanpham','$id')";
+    pdo_execute($sql);
 }
 
 

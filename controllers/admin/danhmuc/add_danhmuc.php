@@ -2,6 +2,7 @@
                 <p><?php echo $thongbao; ?></p>
             <?php endif; ?>
 <div class="container">
+    <h1 class="text-center mt-5">Thêm Danh Mục</h1>
     <form action="index_admin.php?act=adddm" method="post">
         <div>
             <label class="form-label " for="">ID</label>
