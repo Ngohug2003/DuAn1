@@ -77,7 +77,7 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="../views/assets/img/product/<?=$sp['image_sanpham']?>" alt=""></a>
+                                        <a class="primary_img" href="chitietsanpham.html"><img src="./views/assets/img/product/<?=$sp['image_sanpham']?>" alt=""></a>
                                         <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
                                         <div class="action_links">
                                             <ul>

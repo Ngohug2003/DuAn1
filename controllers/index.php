@@ -25,7 +25,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $_SESSION['username'] = $check_user;
                     // check role để vào admin 
                     if ($check_user['role'] == 1) {
-                        header('Location:admin/index_admin.php');
+                        header('Location:controllers/admin/index_admin.php');
                     } else {
                         header('Location:index.php');
                     }

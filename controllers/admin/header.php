@@ -1,109 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trang Admin</title>    <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <!-- <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> -->
-  </head>
 
-  <body>
-    <!-- =============== Navigation ================ -->
-    <div class="container">
-      <div class="navigation">
-        <ul>
-          <li>
-            <a href="#">
-              <span class="icon">
-                <ion-icon name="logo-apple"></ion-icon>
-              </span>
-              <span class="title">Brand Name</span>
-            </a>
-          </li>
+<head>
 
-          <li>
-            <a href="../index.php">
-              <span class="icon">
-                <ion-icon name="home-outline"></ion-icon>
-              </span>
-              <span class="title">Trang chủ</span>
-            </a>
-          </li>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-          <li>
-            <a href="index_admin.php?act=danhmuc">
-              <span class="icon">
-                <ion-icon name="apps-outline"></ion-icon>
-              </span>
-              <span class="title">Quản lý danh mục</span>
-            </a>
-          </li>
+    <title>Admin</title>
 
-          <li>
-            <a href="quanlysanpham.html">
-              <span class="icon">
-                <ion-icon name="folder-open-outline"></ion-icon>
-              </span>
-              <span class="title">Quản lý sản phẩm</span>
-            </a>
-          </li>
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-          <li>
-            <a href="quanlyuser.html">
-              <span class="icon">
-                <ion-icon name="person-circle-outline"></ion-icon>
-              </span>
-              <span class="title">Quản lý user</span>
-            </a>
-          </li>
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-          <li>
-            <a href="quanlydonhang.html">
-              <span class="icon">
-                <ion-icon name="cart-outline"></ion-icon>
-              </span>
-              <span class="title">Quản lý đơn hàng</span>
-            </a>
-          </li>
+</head>
 
-          <li>
-            <a href="quanlybinhluan.html">
-              <span class="icon">
-                <ion-icon name="chatbubble-outline"></ion-icon>
-              </span>
-              <span class="title">Quản lý bình luận</span>
-            </a>
-          </li>
+<body id="page-top">
 
-          <li>
-            <a href="#">
-              <span class="icon">
-                <ion-icon name="log-out-outline"></ion-icon>
-              </span>
-              <span class="title">Sign Out</span>
+   
+    <div id="wrapper">
+
+   
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
-          </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index_admin.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Trang Chủ</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Sản phẩm</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="index_admin.php?act=sanpham">Danh sách sản phẩm</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Danh sách sản phẩm</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="utilities-color.html">Thêm sản phẩm</a>
+                        
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Danh sách người dùng</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="blank.html">Thêm người dùng</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapdonhang"
+                    aria-expanded="true" aria-controls="collapdonhang">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Danh sách đơn hàng</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapthongke"
+                    aria-expanded="true" aria-controls="collapthongke">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Thống kê</span>
+                </a>
+                <div id="collapthongke" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="blank.html">Người dùng</a>
+                        <a class="collapse-item" href="blank.html">Doanh thu</a>
+                    </div>
+                </div>
+            </li>
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
         </ul>
-      </div>
-
-      <!-- ========================= Main ==================== -->
-      <div class="main">
-        <div class="topbar">
-          <div class="toggle">
-            <ion-icon name="menu-outline"></ion-icon>
-          </div>
-
-          <div class="search">
-            <label>
-              <input type="text" placeholder="Search here" />
-              <ion-icon name="search-outline"></ion-icon>
-            </label>
-          </div>
-
-          <div class="user">
-            <span>Xin chào Admin</span>
-          </div>
-        </div>
