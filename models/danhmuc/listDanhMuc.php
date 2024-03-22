@@ -11,28 +11,23 @@ function getOneDanhMuc($id_sanpham){
     extract($getOneDanhMuc);
     return $id_danhmuc;
 }
-
-// function getListSanPham_noibat(){
-//     $sql = "select * from sanpham  order by luotxem_sanpham desc limit 0,4";
-//     $listsanpham = pdo_query($sql);
-//     return $listsanpham;
-// }
-// function search_sanpham($keyword = ""){
-    
-//         $sql = "SELECT * FROM sanpham WHERE 1 ";
-//         if ($keyword != "") {
-//             $sql .= " and name_sanpham like '%" . $keyword . "%'";
-//         }
-//         // if ($id_danhmuc > 0) {
-//         //     $sql .= " and id_danhmuc ='" . $id_danhmuc . "'";
-//         // }
-    
-//         $sql .= " order by id_sanpham desc";
-//         $dssp = pdo_query($sql);
-//         return  $dssp;
-    
-// }
-
+function loadone_danhmuc($id_danhmuc) {
+    $sql="select * from danhmuc where id_danhmuc=".$id_danhmuc;
+    $dm = pdo_query_one($sql); 
+    return $dm;
+}
+function insert_danhmuc($name_danhmuc) {
+    $sql="insert into danhmuc(name_danhmuc) values('$name_danhmuc')";
+    pdo_execute($sql);   
+}
+function delete_danhmuc($id_danhmuc) {
+    $sql = "DELETE FROM danhmuc WHERE id_danhmuc =".$id_danhmuc;
+    pdo_execute($sql); 
+}
+function update_danhmuc($id_danhmuc, $name_danhmuc) {
+    $sql="update danhmuc set name_danhmuc='".$name_danhmuc."' where id_danhmuc=".$id_danhmuc;
+    pdo_execute($sql);
+}
 
 
 ?>

@@ -86,27 +86,32 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th >Name</th>
                                     <th>Image</th>
                                     <th>Price</th>
-                                    <th>Subtitle</th>
+                                    <th >Subtitle</th>
                                     <th>Description</th>
                                     <th>Lượt Xem</th>
                                     <th>Danh Mục</th>
+                                    <th class="w-auto ">Thao Tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($sanpham as $sp) : ?>
                                     <tr>
                                         <td><?= $sp['name_sanpham'] ?></td>
-                                        <td style="height: 100px;">
+                                        <td >
                                             <img style="height: 100px;" src="../../views/assets/img/product/<?= $sp['image_sanpham'] ?>" alt="">
                                         </td>
                                         <td><?= $sp['gia_sanpham'] ?> VND</td>
-                                        <td><?= $sp['subtitle_sanpham'] ?></td>
+                                        <td ><?= $sp['subtitle_sanpham'] ?></td>
                                         <td><?= substr($sp['description_sanpham'], 0, 50) ?><?= strlen($sp['description_sanpham']) > 50 ? '...' : '' ?></td>
                                         <td><?= $sp['luotxem_sanpham'] ?></td>
                                         <td><?= $sp['name_danhmuc'] ?></td>
+                                        <td>
+                                            <a class="btn btn-danger btn-sm" href="">Xóa</a>
+                                            <a class="btn btn-warning  btn-sm" href="">Sửa</a>
+                                        </td>
                                         
                                     </tr>
                                 <?php endforeach ?>

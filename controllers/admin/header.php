@@ -64,6 +64,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="index_admin.php?act=sanpham">Danh sách sản phẩm</a>
+                        <a class="collapse-item" href="index_admin.php?act=add_sanpham">Thêm sản phẩm</a>
                     </div>
                 </div>
             </li>
@@ -71,12 +72,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Danh sách sản phẩm</span>
+                    <span>Danh Mục</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Thêm sản phẩm</a>
+                        <a class="collapse-item" href="index_admin.php?act=danhmuc">Danh sách danh mục</a>
+                        <a class="collapse-item" href="index_admin.php?act=adddm">Thêm danh mục</a>
                         
                     </div>
                 </div>
