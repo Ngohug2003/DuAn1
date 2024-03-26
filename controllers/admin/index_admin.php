@@ -84,29 +84,58 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "./danhsach/sanpham.php";
             break;
         case 'add_sanpham':
-            $danhmuc =  getListDanhMuc();
+
             $error = [];
-            if (isset($_POST['add_sanpham']) && ($_POST['add_sanpham'])){
+            if (isset($_POST['themsp']) && ($_POST['themsp'])) {
                 $name_sanpham = $_POST['name_sanpham'];
                 $gia_sanpham = $_POST['gia_sanpham'];
                 $subtitle_sanpham = $_POST['subtitle_sanpham'];
                 $description_sanpham = $_POST['description_sanpham'];
                 $id = $_POST['id'];
                 $filename = $_FILES['image_sanpham']['name'];
-                $target_dir = "../../views/assets/img/product" ;
+                $target_dir = "../../views/assets/img/product/";
                 $target_file = $target_dir . basename($_FILES['image_sanpham']['name']);
-                if(empty($filename)){
+                if (empty(trim($name_sanpham))) {
+                    $error['name_sanpham']['required'] = "Không được bỏ trống tên sản phẩm ";
+                } else {
+                    if (strlen(trim($name_sanpham)) <  5) {
+                        $error['name_sanpham']['required'] = "Sản phấm không dưới 5 kí tự";
+                    }
+                }
+                if (empty($gia_sanpham)) {
+                    $error['gia_sanpham']['required'] = "Không được bỏ trống giá";
+                } else {
+                    if (!is_numeric($gia_sanpham) || $sanpham <= 0 || floor($gia_sanpham) != $gia_sanpham) {
+                        $error['gia_sanpham']['required'] = "Giá tiền phải nguyên dương";
+                    }
+                }
+                if (empty($filename)) {
                     $error['image_sanpham'] = "chưa upload";
-                }else {
+                } else {
                     if (move_uploaded_file($_FILES["image_sanpham"]["tmp_name"], $target_file)) {
                     } else {
                     }
-                    add_sanpham($name_sanpham, $gia_sanpham, $filename, $subtitle_sanpham,$description_sanpham,$id);
+                    add_sanpham($name_sanpham, $gia_sanpham, $filename, $subtitle_sanpham, $description_sanpham, $id);
                     $thongbao = "Thêm thành công";
                 }
             }
-           
+            $danhmuc =  getListDanhMuc();
             include "./danhsach/add_sanpham.php";
+            break;
+        case 'delete_sanpham':
+            if (isset($_GET['id_sanpham']) && $_GET['id_sanpham'] > 0) {
+                delete_sanpham($_GET['id_sanpham']);
+                echo '<script>alert("Xóa sản phẩm thành công!");</script>';
+            }
+            $sanpham = getListSanPham();
+            include "./danhsach/sanpham.php";
+            break;
+        case 'detail_sanpham':
+            if (isset($_GET['id_sanpham']) && $_GET['id_sanpham'] > 0) {
+                $one_sp  = getOneSanPham($_GET['id_sanpham']);
+            }
+            $danhmuc =  getListDanhMuc();
+            include "./danhsach/detail_sanpham.php";
             break;
     }
 } else {

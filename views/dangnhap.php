@@ -26,7 +26,7 @@
                         <p>
                             <label>Tên tài khoản<span>*</span></label>
                             <input name="username">
-                            <span style="color: red"><?php echo isset($error["username"]) ? $error["username"] : '' ?></span>
+                            <span style="color: red"><?php echo isset($error["username_login"]) ? $error["username_login"] : '' ?></span>
                         </p>
                         <p>
                             <label>Mật khẩu<span>*</span></label>
@@ -36,7 +36,7 @@
                             <a href="#">Quên mật khẩu</a>
                             <!-- <button name="dangnhap" type="submit">Đăng nhập</button> -->
                             <input type="submit" style="background-color: #09c6ab;" class="btn bg-yellowhung text-uppercase text-white me-3" value="Đăng nhập" name="dangnhap">
-                            <span style="color: red"><?php echo isset($error["password"]) ? $error["password"] : '' ?></span>
+                            <span style="color: red"><?php echo isset($error["password_login"]) ? $error["password_login"] : '' ?></span>
                         </div>
 
                     </form>
