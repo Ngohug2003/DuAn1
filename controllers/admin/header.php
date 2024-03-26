@@ -87,12 +87,14 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Danh sách người dùng</span>
+                    <span>Người dùng</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="blank.html">Thêm người dùng</a>
+                        <a class="collapse-item" href="index_admin.php?act=nguoidung">Danh sách người dùng</a>
+                        <a class="collapse-item" href="index_admin.php?act=add_user">Thêm người dùng</a>
                     </div>
+                    
                 </div>
             </li>
             <li class="nav-item">

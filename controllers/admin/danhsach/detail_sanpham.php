@@ -32,12 +32,12 @@
             <label class="form-label " for="">Danh Mục</label>
             <select name="id_danhmuc" class="form-select" aria-label="Default select example">
                 <?php foreach ($danhmuc as $dm) : ?>
-
-                    if($danhmuc['id_danhmuc']==$danhmuc['id_danhmuc']){
-                    echo '<option value="<?php echo $danhmuc['id_danhmuc'] ?>" selected><?php echo $danhmuc['name'] ?></option>';
-                    }
-
-                <?php endforeach ?>
+                    <?php if ($dm['id_danhmuc'] == $one_sp['id_danhmuc']) : ?>
+                        <option value="<?= $dm['id_danhmuc'] ?>" selected><?= $dm['name_danhmuc'] ?></option>
+                    <?php else : ?>
+                        <option value="<?= $dm['id_danhmuc'] ?>"><?= $dm['name_danhmuc'] ?></option>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="mt-2"> <span style="color: green"><?php echo isset($thongbao) ? $thongbao : '' ?></span></div>
