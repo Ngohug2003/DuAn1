@@ -108,9 +108,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
            
             include "./danhsach/add_sanpham.php";
             break;
+
+            
     }
 } else {
     include "../admin/home.php";
 }
 
 include "../admin/footer.php";
+

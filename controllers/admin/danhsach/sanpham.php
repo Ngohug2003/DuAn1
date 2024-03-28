@@ -109,7 +109,7 @@
                                         <td><?= $sp['luotxem_sanpham'] ?></td>
                                         <td><?= $sp['name_danhmuc'] ?></td>
                                         <td>
-                                            <a class="btn btn-danger btn-sm" href="">Xóa</a>
+                                            <button class="btn btn-danger btn-sm" onClick="confirmDelete('index_admin.php?act=delete_sanpham&id_sanpham=<?= $sp['id_sanpham'] ?>')">Xóa</button>
                                             <a class="btn btn-warning  btn-sm" href="">Sửa</a>
                                         </td>
                                         
