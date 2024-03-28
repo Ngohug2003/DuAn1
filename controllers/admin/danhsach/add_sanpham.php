@@ -4,10 +4,12 @@
         <div class="mb-3">
             <label class="form-label " for="">Sản Phẩm</label>
             <input class="form-control " type="text" name="name_sanpham" id="">
+            <span style="color: red"><?php echo isset( $error['name_sanpham']['required']) ?  $error['name_sanpham']['required'] : '' ?></span>
         </div>
         <div class="mb-3">
             <label class="form-label " for="">Giá</label>
             <input class="form-control " type="text" name="gia_sanpham" id="">
+            <span style="color: red"><?php echo isset($error['gia_sanpham']['required']) ? $error['gia_sanpham']['required'] : '' ?></span>
         </div>
         <div class="mb-3">
             <label for="">Ảnh</label>
@@ -23,17 +25,18 @@
         </div>
         <div>
             <label class="form-label " for="">Danh Mục</label>
-            <select class="form-select" aria-label="Default select example">
+            <select  name="id" class="form-select" aria-label="Default select example">
                 <?php foreach ($danhmuc as $dm) : ?>
-                    <option name="id" value="<?php echo $dm['id_danhmuc'] ?>"><?php echo $dm['name_danhmuc'] ?></option>
+                    <option value="<?php echo $dm['id_danhmuc'] ?>"><?php echo $dm['name_danhmuc'] ?></option>
                 <?php endforeach ?>
             </select>
         </div>
+        <div class="mt-2"> <span  style="color: green"><?php echo isset($thongbao) ? $thongbao : '' ?></span></div>
 
 
         <!-- sumbit  -->
         <div class="mt-4">
-            <input class="btn btn-success " type="submit" name="add_sanpham" id="" value="Thêm ">
+            <input class="btn btn-success " type="submit" name="themsp" id="" value="Thêm ">
             <a class="btn btn-secondary " href="index_admin.php?act=sanpham">Danh Sách</a>
         </div>
     </form>

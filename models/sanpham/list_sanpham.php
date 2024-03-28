@@ -8,7 +8,7 @@ function getListSanPham(){
     $sql = "SELECT * FROM sanpham inner join danhmuc on sanpham.id_danhmuc = danhmuc.id_danhmuc " ;
     $sanpham = pdo_query($sql);
     return $sanpham;
-}
+}   
 function getOneSanPham($idsp){
     $sql = "SELECT * FROM sanpham WHERE id_sanpham = $idsp";
     $Onesanpham = pdo_query_one($sql);
@@ -20,7 +20,7 @@ function getListSanPham_noibat(){
     return $listsanpham;
 }
 function  getSanPham_DanhMuc($idsp,$id_danhmuc){
-    $sql = "SELECT * FROM sanpham WHERE id_danhmuc = ".$id_danhmuc." AND id_sanpham<>".$idsp."";
+    $sql = "SELECT * FROM sanpham WHERE id_danhmuc = ".$id_danhmuc." AND id_sanpham <>".$idsp."";
     $getSanPham_DanhMuc = pdo_query($sql);
     return $getSanPham_DanhMuc;
 }
@@ -40,6 +40,10 @@ function search_sanpham($keyword = "",$id_danhmuc = 0){
 }
 function add_sanpham($name_sanpham, $gia_sanpham, $image_sanpham, $subtitle_sanpham,$description_sanpham,$id){
     $sql = "insert into sanpham(name_sanpham, gia_sanpham, image_sanpham, subtitle_sanpham, description_sanpham,id_danhmuc) values('$name_sanpham', '$gia_sanpham', '$image_sanpham', '$subtitle_sanpham', '$description_sanpham','$id')";
+    pdo_execute($sql);
+}
+function delete_sanpham($id_sanpham){
+    $sql = "DELETE FROM sanpham WHERE id_sanpham = ".$id_sanpham;
     pdo_execute($sql);
 }
 

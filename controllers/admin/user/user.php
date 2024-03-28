@@ -86,33 +86,35 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th >Name</th>
-                                    <th>Image</th>
-                                    <th>Price</th>
-                                    <th style="width: 330px;" >Subtitle</th>
-                                    <th style="width: 300px;" >Description</th>
-                                    <th>Lượt Xem</th>
-                                    <th>Danh Mục</th>
-                                    <th style="width: 140px;">Thao Tác</th>
+                                    <th>STT</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>Họ Và Tên</th>
+                                    <th>Avatar</th>
+                                    <th>SĐT</th>
+                                    <th>Email</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Role</th>
+                                    <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($sanpham as $sp) : ?>
-                                    <tr>
-                                        <td><?= $sp['name_sanpham'] ?></td>
-                                        <td >
-                                            <img style="height: 100px;" src="../../views/assets/img/product/<?= $sp['image_sanpham'] ?>" alt="">
-                                        </td>
-                                        <td><?= $sp['gia_sanpham'] ?> VND</td>
-                                        <td><?= substr($sp['subtitle_sanpham'], 0, 30) ?><?= strlen($sp['subtitle_sanpham']) > 30 ? '...' : '' ?></td>
-                                        <td><?= substr($sp['description_sanpham'], 0, 30) ?><?= strlen($sp['description_sanpham']) > 30? '...' : '' ?></td>
-                                        <td><?= $sp['luotxem_sanpham'] ?></td>
-                                        <td><?= $sp['name_danhmuc'] ?></td>
+                                <?php foreach ($user as $key => $user) : ?>
+                                    <tr>     
+                                        <td><?= $key + 1 ?></td>
+                                        <td><?= $user['username_user'] ?></td>
+                                        <td><?= $user['password_user'] ?></td>
+                                        <td><?= $user['fullname_user'] ?></td>
+                                        <td><?= $user['avatar_user'] ?></td>
+                                        <td><?= $user['phone_user'] ?></td>
+                                        <td><?= $user['email_user'] ?></td>
+                                        <td><?= $user['diachi_user'] ?></td>
+                                        <td><?= $user['role'] ?></td>
                                         <td>
-                                            <a class="btn btn-danger btn-sm" href="">Xóa</a>
-                                            <a class="btn btn-warning  btn-sm" href="">Sửa</a>
+                                        <button class="btn btn-danger btn-sm" onclick="confirmDelete('index_admin.php?act=delete_user&id_user=<?= $user['id_user']?>')">Xóa</button>
+                                            <a class="btn btn-warning  btn-sm"  href="index_admin.php?act=update_detail_user&id_user=<?= $user['id_user']?>">Sửa</a>
+                                         
                                         </td>
-                                        
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
