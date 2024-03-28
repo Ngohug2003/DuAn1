@@ -44,7 +44,7 @@
         <!-- sumbit  -->
         <div class="mt-4">
             <input type="hidden" value="<?= $one_sp['id_sanpham'] ?>" name="id_sanpham" id="">
-            <input class="btn btn-success " type="submit" name="themsp" id="" value="Thêm ">
+            <input class="btn btn-success " type="submit" name="    " id="" value="Thêm ">
             <a class="btn btn-secondary " href="index_admin.php?act=sanpham">Danh Sách</a>
         </div>
     </form>

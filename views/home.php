@@ -45,7 +45,7 @@
                                                     // Định dạng giá sản phẩm thành chuỗi tiền tệ (VND)
                                                     $gia_sanpham_format = number_format($gia_sanpham, 0, '', '.') . " VND";
                                                     ?>
-                                                  <span class="current_price"><?php echo $gia_sanpham_format; ?></span>
+                                                    <span class="current_price"><?php echo $gia_sanpham_format; ?></span>
                                                 </div>
 
                                             </div>
@@ -71,7 +71,7 @@
                 <div class="banner-text">
 
                     <p>DAM Computer là nơi bán máy tính laptop uy tin chất lượng nhất .. với giá cả phù hợp </p>
-                    <a href="shop.html">Xem chi tiết</a>
+                    <a href="index.php?act=timkiem">Xem chi tiết</a>
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@
                     <article class="single_product">
                         <figure>
                             <div class="product_thumb">
-                                <a class="primary_img" href="product-details.html"><img src="./views/assets/img/product/<?php echo $sptop['image_sanpham'] ?>" alt=""></a>
+                                <a class="primary_img" href="index.php?act=chitietsanpham&idsp=<?php echo $sptop['id_sanpham'] ?>"><img src="./views/assets/img/product/<?php echo $sptop['image_sanpham'] ?>" alt=""></a>
                                 <div class="action_links">
                                     <ul>
                                         <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
@@ -106,14 +106,20 @@
                             </div>
                             <figcaption class="product_content">
                                 <div class="product_content-header">
-                                    <h4 class="product_name"><a href="product-details.html"><?php echo $sptop['name_sanpham'] ?></a></h4>
+                                    <h4 class="product_name"><a href="index.php?act=chitietsanpham&idsp=<?php echo $sptop['id_sanpham'] ?>"><?php echo $sptop['name_sanpham'] ?></a></h4>
                                     <div class="wishlist-btn">
                                         <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
                                     </div>
                                 </div>
                                 <div class="product_price_rating">
                                     <div class="price_box">
-                                        <span class="current_price"><?php echo $sptop['gia_sanpham'] ?> VND</span>
+                                        <?php
+                                        // Giả sử $sp['gia_sanpham'] là giá của sản phẩm (kiểu số)
+                                        $gia_sanpham = $sptop['gia_sanpham'];
+                                        // Định dạng giá sản phẩm thành chuỗi tiền tệ (VND)
+                                        $gia_sanpham_format = number_format($gia_sanpham, 0, '', '.') . " VND";
+                                        ?>
+                                        <span class="current_price"><?php echo $gia_sanpham_format  ?> VND</span>
                                     </div>
 
                                 </div>
