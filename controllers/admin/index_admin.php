@@ -147,7 +147,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "./user/user.php";
             break;
         case 'add_user':
-             $error = [];
+            $error = [];
             if (isset($_POST['themmoi_user']) && ($_POST['themmoi_user'])) {
                 $username_user = $_POST['username_user'];
                 $password_user = $_POST['password_user'];
@@ -155,21 +155,73 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $phone_user = $_POST['phone_user'];
                 $email_user = $_POST['email_user'];
                 $diachi_user = $_POST['diachi_user'];
-                $filename = $_FILES['avatar_user']['name'];
-                $target_dir = "../../views/assets/img/product/";
-                $target_file = $target_dir . basename($_FILES['avatar_user']['name']);
-                var_dump($username_user);
-                if (empty($filename)) {
-                    $error['avatar_user'] = "chưa upload";
-                } else {
-                    if (move_uploaded_file($_FILES["avatar_user"]["tmp_name"], $target_file)) {
-                    } else {
-                    }
-                    addAllUser($username_user, $password_user,$fullname_user,$filename,$phone_user,$email_user,$diachi_user);
-                    $thongbao = "Thêm thành công";
+                $filename = $_FILES['image_user']['name'];
+                $target_dir = "../../views/assets/img/avatar/";
+                $target_file = $target_dir . basename($_FILES['image_user']['name']);
+                $role = $_POST['role'];
+                if (empty($username_user)) {
+                    $error['username_user'] = 'Vui lòng nhập tài khoản';
+                }
+                if (empty($password_user)) {
+                    $error['password_user'] = 'Vui lòng nhập password';
+                }
+                if (empty($email_user)) {
+                    $error['email_user'] = 'Vui lòng nhập email';
+                } else if (!filter_var($email_user, FILTER_VALIDATE_EMAIL)) { // filter_var đi cùng với những hàm validate có sẵn trong php
+                    $error['email_user'] = 'Email không đúng định dạng';
+                }
+                if (empty($phone_user)) {
+                    $error['phone_user'] = 'Vui lòng nhập số điện thoại';
+                } else if (!preg_match("/^[0-9]{10,11}$/", $phone_user)) {
+                    $error['phone_user'] = 'Số điện thoại không hợp lệ';
+                }
+                if(check_username($username_user)){
+                    $error['username_user'] = 'Tài khoản đã tồn tại';
+                }
+                if (!$error) {
+                    addAllUser($username_user, $password_user, $fullname_user, $phone_user, $email_user, $diachi_user,$filename, $role);
+                    echo '<script>alert("Thêm phẩm thành công!");</script>';
                 }
             }
             include "./user/add_user.php";
+            break;
+        case 'delete_user':
+            if (isset($_GET['id_user']) && $_GET['id_user'] > 0) {
+                deleteUser($_GET['id_user']);
+                echo '<script>alert("Xóa thành công!");</script>';
+            }
+            $user = getListUser();
+            include "./user/user.php";
+            break;
+
+        case 'detail_user':
+            if (isset($_GET['id_user']) && $_GET['id_user'] > 0) {
+                $one_user = getOneUser($_GET['id_user']);
+            }
+            include "./user/detail_user.php";
+            break;
+        case 'edit_user':
+            if (isset($_POST['update']) && ($_POST['update'])) {
+                $id_user = $_POST['id_user'];
+                $username_user = $_POST['username_user'];
+                $password_user = $_POST['password_user'];
+                $fullname_user = $_POST['fullname_user'];
+                $phone_user = $_POST['phone_user'];
+                $email_user = $_POST['email_user'];
+                $diachi_user = $_POST['diachi_user'];
+                $filename = $_FILES['image_user']['name'];
+                $target_dir = "../../views/assets/img/avatar/";
+                $target_file = $target_dir . basename($_FILES['image_user']['name']);
+                $role = $_POST['role'];
+                if (empty($filename)) {
+                    $error['image_user'] = "chưa có name";
+                } else {
+                    updateUser($id_user,$username_user, $password_user,$fullname_user,$phone_user,$email_user,$diachi_user,$filename,$role);
+                    echo "<script language='javascript'>alert('Cập nhật tài khoản thành công');</script>";
+                }
+            }
+            $user = getListUser();
+            include "./user/user.php";
             break;
     }
 } else {

@@ -2,7 +2,7 @@
 $hideSlideshow = false; // Mặc định hiển thị slideshow
 
 // Kiểm tra nếu tham số act là dangnhap
-if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chitietsanpham' || $_GET['act'] == 'dangky')) {
+if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chitietsanpham' || $_GET['act'] == 'dangky' || $_GET['act'] == 'user' || $_GET['act'] == 'quenmk')) {
     $hideSlideshow = true; // Ẩn slideshow
 }
 ?>
@@ -48,6 +48,10 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
 
     <!--modernizr min js here-->
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="./views/assets/css/font.awesome.css">
+
+ 
+
 </head>
 
 <body>
@@ -74,9 +78,9 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                             <li><a href="index.php?act=timkiem">Sản Phẩm<i class="fa fa-angle-down"></i></a>
                                                 <ul class="sub_menu pages">
                                                     <li><a href="index.php?act=timkiem&id_danhmuc=1">Macbook</a></li>
-                                                    <li><a href="index.php?act=timkiem&id_danhmuc=2">HP</a></li>  
-            
-                                                    <li><a href="index.php?act=timkiem&id_danhmuc=3">Asus</a></li>      
+                                                    <li><a href="index.php?act=timkiem&id_danhmuc=2">HP</a></li>
+
+                                                    <li><a href="index.php?act=timkiem&id_danhmuc=3">Asus</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Tin tức</a>
@@ -105,7 +109,7 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                                             <?php
                                                             if (isset($_SESSION['username'])) {
                                                                 extract($_SESSION['username']);
-                                                                echo '<a href="taikhoan.html">' . $username_user . '</a>';
+                                                                echo '<a href="index.php?act=user&id_user=' . $id_user . '">' . $username_user . '</a>';
                                                             } else {
                                                             ?>
                                                         <li class="nav-item me-3"><a href="index.php?act=dangnhap">Login</a></li>
@@ -114,7 +118,7 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                                     ?>
 
                                         </li>
-                                        <li><a href="giohang.html">Giỏ Hàng</a></li>
+                                        <li><a href="index.php?act=giohang">Giỏ Hàng</a></li>
                                         <li><a href="index.php?act=dangxuat">Logout</a></li>
 
                                     </ul>
@@ -122,71 +126,24 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                 </div>
                             </div>
                             </li>
-                            <li class="mini_cart_wrapper"><a href="javascript:void(0)"><img src="./views/assets/img/icon/icon-cart.png" alt=""> <span class="item_count">2</span></a>
+                            <li class="mini_cart_wrapper"><a href="index.php?act=giohang"><img src="./views/assets/img/icon/icon-cart.png" alt=""> <span class="item_count">2</span></a>
                                 <!--mini cart-->
-                                <div class="mini_cart">
-                                    <div class="cart_gallery">
-                                        <div class="cart_item">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="./views/assets/img/s-product/product.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart_info">
-                                                <a href="#">Áo abc</a>
-                                                <p>1 x <span> $65 </span></p>
-                                            </div>
-                                            <div class="cart_remove">
-                                                <a href="#"><i class="fa fa-times-circle"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="cart_item">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="./views/assets/img/s-product/product2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart_info">
-                                                <a href="#">Túi abc</a>
-                                                <p>1 x <span> $60 </span></p>
-                                            </div>
-                                            <div class="cart_remove">
-                                                <a href="#"><i class="fa fa-times-circle"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mini_cart_table">
-                                        <div class="cart_table_border">
-
-                                            <div class="cart_total mt-10">
-                                                <span>Tổng tiền:</span>
-                                                <span class="price">$125</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mini_cart_footer">
-                                        <div class="cart_button">
-                                            <a href="giohang.html"><i class="fa fa-shopping-cart"></i>Xem giỏ hàng</a>
-                                        </div>
-                                        <div class="cart_button">
-                                            <a href="thanhtoan.html"><i class="fa fa-sign-in"></i> Thanh toán</a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
                                 <!--mini cart end-->
 
                             </li>
                             <?php
                             if (isset($_SESSION['username'])) {
-                               
+
                                 echo '';
                             } else {
                             ?>
                                 <li class="logina">
-                                <a href="index.php?act=dangnhap"><i class="bi bi-person-circle fs-3 mt-2"></i></a>
-                            </li>
+                                    <a href="index.php?act=dangnhap"><i class="bi bi-person-circle fs-3 mt-2"></i></a>
+                                </li>
                             <?php
                             }
                             ?>
-                            
+
                             </ul>
                         </div>
                     </div>

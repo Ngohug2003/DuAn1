@@ -33,7 +33,7 @@
                             <input type="password" name="password">
                         </p>
                         <div class="login_submit">
-                            <a href="#">Quên mật khẩu</a>
+                            <a href="index.php?act=quenmk">Quên mật khẩu</a>
                             <!-- <button name="dangnhap" type="submit">Đăng nhập</button> -->
                             <input type="submit" style="background-color: #09c6ab;" class="btn bg-yellowhung text-uppercase text-white me-3" value="Đăng nhập" name="dangnhap">
                             <span style="color: red"><?php echo isset($error["password_login"]) ? $error["password_login"] : '' ?></span>

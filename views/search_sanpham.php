@@ -77,8 +77,8 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="chitietsanpham.html"><img src="./views/assets/img/product/<?=$sp['image_sanpham']?>" alt=""></a>
-                                        <a class="secondary_img" href="chitietsanpham.html"><img src="assets/img/product/product25.jpg" alt=""></a>
+                                        <a class="primary_img" href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham'] ?>"><img src="./views/assets/img/product/<?=$sp['image_sanpham']?>" alt=""></a>
+                                        <a class="secondary_img" href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham'] ?>"><img src="assets/img/product/product25.jpg" alt=""></a>
                                         <div class="action_links">
                                             <ul>
                                                 <li class="add_to_cart"><a href="giohang.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
@@ -90,14 +90,20 @@
                                     </div>
                                     <div class="product_content grid_content">
                                         <div style="height: 80px;" class="product_content-header">
-                                            <h4 class="product_name"><a href="chitietsanpham.html"><?=$sp['name_sanpham']?></a></h4>
+                                            <h4 class="product_name"><a href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham'] ?>"><?=$sp['name_sanpham']?></a></h4>
                                             <div class="wishlist-btn">
                                                 <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
                                             </div>
                                         </div>
                                         <div class="product_price_rating">
                                             <div class="price_box"> 
-                                                <span class="current_price"><?=$sp['gia_sanpham']?></span>
+                                            <?php
+                                            // Giả sử $sp['gia_sanpham'] là giá của sản phẩm (kiểu số)
+                                            $gia_sanpham =$sp['gia_sanpham'];
+                                            // Định dạng giá sản phẩm thành chuỗi tiền tệ (VND)
+                                            $gia_sanpham_format = number_format($gia_sanpham, 0, '', '.') . " VND";
+                                            ?>
+                                                <span class="current_price"><?=$gia_sanpham_format?></span>
                                             </div>
                                           
                                        </div>

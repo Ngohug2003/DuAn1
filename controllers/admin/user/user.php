@@ -90,12 +90,11 @@
                                     <th>Username</th>
                                     <th>Password</th>
                                     <th>Họ Và Tên</th>
-                                    <th>Avatar</th>
                                     <th>SĐT</th>
                                     <th>Email</th>
                                     <th>Địa chỉ</th>
                                     <th>Role</th>
-                                    <th>Thao tác</th>
+                                    <th style="width:140px;"> Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -105,14 +104,14 @@
                                         <td><?= $user['username_user'] ?></td>
                                         <td><?= $user['password_user'] ?></td>
                                         <td><?= $user['fullname_user'] ?></td>
-                                        <td><?= $user['avatar_user'] ?></td>
+                                        
                                         <td><?= $user['phone_user'] ?></td>
                                         <td><?= $user['email_user'] ?></td>
                                         <td><?= $user['diachi_user'] ?></td>
                                         <td><?= $user['role'] ?></td>
                                         <td>
                                         <button class="btn btn-danger btn-sm" onclick="confirmDelete('index_admin.php?act=delete_user&id_user=<?= $user['id_user']?>')">Xóa</button>
-                                            <a class="btn btn-warning  btn-sm"  href="index_admin.php?act=update_detail_user&id_user=<?= $user['id_user']?>">Sửa</a>
+                                            <a class="btn btn-warning  btn-sm"  href="index_admin.php?act=detail_user&id_user=<?= $user['id_user']?>">Sửa</a>
                                          
                                         </td>
                                     </tr>
