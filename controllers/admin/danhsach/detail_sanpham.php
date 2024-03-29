@@ -1,6 +1,6 @@
 <div class="container">
     <h1 class="text-center mt-5">Update sản phẩm</h1>
-    <form action="index_admin.php?act=add_sanpham" method="post" enctype="multipart/form-data">
+    <form action="index_admin.php?act=update_sanpham" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label " for="">Sản Phẩm</label>
             <input value="<?= $one_sp['name_sanpham'] ?>" class="form-control " type="text" name="name_sanpham" id="">
@@ -44,7 +44,7 @@
         <!-- sumbit  -->
         <div class="mt-4">
             <input type="hidden" value="<?= $one_sp['id_sanpham'] ?>" name="id_sanpham" id="">
-            <input class="btn btn-success " type="submit" name="    " id="" value="Thêm ">
+            <input class="btn btn-success " type="submit" name="    " id="" value="Update ">
             <a class="btn btn-secondary " href="index_admin.php?act=sanpham">Danh Sách</a>
         </div>
     </form>

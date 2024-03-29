@@ -65,8 +65,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $id_danhmuc = $_POST['id_danhmuc'];
                 update_danhmuc($id_danhmuc, $name_danhmuc);
                 $dm = loadone_danhmuc($id_danhmuc);
-                $thongbao = "Cập nhật thành công"; // Success message
-                // Set JavaScript variable containing the success message
+                $thongbao = "Cập nhật thành công"; 
                 echo "<script>var successMessage = '$thongbao';</script>";
             }
             $danhmuc =  getListDanhMuc();
@@ -136,7 +135,22 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             $danhmuc =  getListDanhMuc();
             include "./danhsach/detail_sanpham.php";
+            
             break;
+        case 'update_sanpham':
+            if (isset($_POST['update']) && ($_POST['update'])) {
+               $name_sanpham = $_POST['name_sanpham'];
+               $id_sanpham = $_POST['id_sanpham'];
+               $gia_sanpham = $_POST['gia_sanpham'];
+               $subtitle_sanpham = $_POST['subtitle_sanpham'];
+               $description_sanpham = $_POST['description_sanpham'];
+               $id = $_POST['id'];
+               
+            //    update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $filename, $subtitle_sanpham, $description_sanpham, $id);
+            // chưa viết test sql 
+            }
+            $sanpham = getListSanPham();
+            include "../admin/danhsach/sanpham.php";
             // end sản phẩm 
 
 
@@ -147,7 +161,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "./user/user.php";
             break;
         case 'add_user':
-            $error = [];
+             $error = [];
             if (isset($_POST['themmoi_user']) && ($_POST['themmoi_user'])) {
                 $username_user = $_POST['username_user'];
                 $password_user = $_POST['password_user'];
@@ -186,6 +200,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             include "./user/add_user.php";
             break;
+
         case 'delete_user':
             if (isset($_GET['id_user']) && $_GET['id_user'] > 0) {
                 deleteUser($_GET['id_user']);
@@ -225,9 +240,11 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $user = getListUser();
             include "./user/user.php";
             break;
+
     }
 } else {
     include "../admin/home.php";
 }
 
 include "../admin/footer.php";
+
