@@ -29,11 +29,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $email_user = $_POST['email_user'];
                 $diachi_user = $_POST['diachi_user'];
                 $filename = $_FILES['image_user']['name'];
-                $target_dir = "../../views/assets/img/avatar/";
+                $target_dir = "./views/assets/img/avatar/";
                 $target_file = $target_dir . basename($_FILES['image_user']['name']);
                 if (empty($filename)) {
                     $error['image_user'] = "chưa có ảnh";
                 } else {
+                    move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
                     updateUser($id_user, $username_user, $password_user, $fullname_user, $phone_user, $email_user, $diachi_user,$filename, $role);
                     echo "<script language='javascript'>alert('Cập nhật tài khoản thành công');</script>";
                 }

@@ -74,13 +74,12 @@
                             <div class="login">
                                 <div class="login_form_container">
                                     <div class="account_login_form">
-                                        <form action="" method="post"> <br>
-                                            <img src="./views/assets/img/avatar/<?= $one_user['image_user'] ?>" alt="Avatar"><br>
+                                        <form action="" method="post"  enctype="multipart/form-data"> <br>
+                                            <img style="height: 70px; border-radius: 50%;" src="./views/assets/img/avatar/<?= $one_user['image_user'] ?>" alt="Avatar"><br>
                                             <label>Avatar</label>
-                                            <img src="./assets/img/avatar/<?= $one_user['image_user'] ?>" alt=""><br>
+                                            <input type="file" name="image_user" id="">
                                             <label>Họ và tên</label>
                                             <input value="<?= $one_user['fullname_user'] ?>" type="text" name="fullname_user">
-
                                             <label>Email</label>
                                             <input value="<?= $one_user['email_user'] ?>" type="text" name="email_user">
                                             <label>Mật khẩu</label>

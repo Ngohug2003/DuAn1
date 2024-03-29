@@ -179,6 +179,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $error['username_user'] = 'Tài khoản đã tồn tại';
                 }
                 if (!$error) {
+                    move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
                     addAllUser($username_user, $password_user, $fullname_user, $phone_user, $email_user, $diachi_user,$filename, $role);
                     echo '<script>alert("Thêm phẩm thành công!");</script>';
                 }
@@ -216,6 +217,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 if (empty($filename)) {
                     $error['image_user'] = "chưa có name";
                 } else {
+                    move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
                     updateUser($id_user,$username_user, $password_user,$fullname_user,$phone_user,$email_user,$diachi_user,$filename,$role);
                     echo "<script language='javascript'>alert('Cập nhật tài khoản thành công');</script>";
                 }
