@@ -136,7 +136,21 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             $danhmuc =  getListDanhMuc();
             include "./danhsach/detail_sanpham.php";
+            
             break;
+        case 'update_sanpham':
+            if (isset($_POST['update']) && ($_POST['update'])) {
+               $name_sanpham = $_POST['name_sanpham'];
+               $id_sanpham = $_POST['id_sanpham'];
+               $gia_sanpham = $_POST['gia_sanpham'];
+               $subtitle_sanpham = $_POST['subtitle_sanpham'];
+               $description_sanpham = $_POST['description_sanpham'];
+               $id = $_POST['id'];
+               
+               update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $filename, $subtitle_sanpham, $description_sanpham, $id);
+            }
+            $sanpham = getListSanPham();
+            include "../admin/danhsach/sanpham.php";
             // end sản phẩm 
 
 
