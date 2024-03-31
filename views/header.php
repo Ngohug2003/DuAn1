@@ -2,7 +2,7 @@
 $hideSlideshow = false; // Mặc định hiển thị slideshow
 
 // Kiểm tra nếu tham số act là dangnhap
-if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chitietsanpham' || $_GET['act'] == 'dangky' || $_GET['act'] == 'user' || $_GET['act'] == 'quenmk')) {
+if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chitietsanpham' || $_GET['act'] == 'dangky' || $_GET['act'] == 'user' || $_GET['act'] == 'quenmk'  || $_GET['act'] == 'giohang')) {
     $hideSlideshow = true; // Ẩn slideshow
 }
 ?>

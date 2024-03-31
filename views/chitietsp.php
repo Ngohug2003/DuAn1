@@ -23,7 +23,7 @@
                 <div class="product-details-tab">
                     <div id="img-1" class="zoomWrapper single-zoom">
                         <a href="#">
-                            <img id="zoom1" src="./views/assets/img/product/<?= $image_sanpham ?>" data-zoom-image="./assets/img/product/<?= $image_sanpham ?>" alt="big-1">
+                            <img name="anh" id="zoom1" src="./views/assets/img/product/<?= $image_sanpham ?>" data-zoom-image="./assets/img/product/<?= $image_sanpham ?>" alt="big-1">
                         </a>
                     </div>
 
@@ -34,7 +34,7 @@
 
 
                 <div class="product_d_right">
-                    <form action="#">
+                    <form action="index.php?act=giohang" method="post">
                         <h1><a href="#"><?= $name_sanpham ?></a></h1>
                         <?php
                         // Giả sử $sp['gia_sanpham'] là giá của sản phẩm (kiểu số)
@@ -48,10 +48,14 @@
                         <div class="product_desc">
                             <p><?= $subtitle_sanpham ?></p>
                         </div>
+
                         <div class="product_variant quantity">
-                            <label>quantity</label>
+                            <label>Số Lượng</label>
                             <input name="quantity" min="1" max="100" value="1" type="number">
-                            <button class="button" type="submit"><a href="giohang.html">Thêm giỏ hàng</a></button>
+                            <input type="hidden" name="name_sanpham" id="" value="<?= $name_sanpham ?>">
+                            <input type="hidden" name="gia_sanpham" id="" value="<?= $gia_sanpham_format ?>">
+                            <input type="hidden" name="image_sanpham" id="" value="<?= $image_sanpham ?>">
+                            <input   type="submit" style="background-color: #09c6ab; width: 240px;" class="btn bg-yellowhung text-uppercase text-white me-3" value="Thêm vào giỏ hàng" name="addgiohang">
 
                         </div>
 

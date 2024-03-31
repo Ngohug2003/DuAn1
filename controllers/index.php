@@ -159,7 +159,15 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             // giỏ hàng 
             // 
         case 'giohang':
+            if(isset($_POST['addgiohang'])  && $_POST['addgiohang']){
+                $quantity = $_POST['quantity'];
+                $name_sanpham = $_POST['name_sanpham'];
+                $gia_sanpham = $_POST['gia_sanpham'];
+                $image_sanpham = $_POST['image_sanpham'];
 
+                
+
+            }
             include "./views/giohang.php";
             break;
         default:
