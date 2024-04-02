@@ -5,6 +5,7 @@ include ".././../global.php";
 include "../../models/connect.php";
 include "../../models/user/taikhoan.php";
 include "../../models/sanpham/list_sanpham.php";
+include "../../models/binhluan/binhluan.php";
 include "../../models/danhmuc/listDanhMuc.php";
 include "../admin/header.php";
 $danhmuc =  getListDanhMuc();
@@ -240,7 +241,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $user = getListUser();
             include "./user/user.php";
             break;
-
+        case 'dsbinhluan':
+            $getbinhluan = getAllBinhLuan();
+            include "./binhluan/binhluan.php";
+            break;
     }
 } else {
     include "../admin/home.php";

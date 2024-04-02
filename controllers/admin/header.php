@@ -98,6 +98,19 @@
                 </div>
             </li>
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseComment" aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Danh Sách bình luận</span>
+                </a>
+                <div id="collapseComment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="index_admin.php?act=dsbinhluan">Danh sách bình luận</a>
+
+                    </div>
+
+                </div>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapdonhang"
                     aria-expanded="true" aria-controls="collapdonhang">
                     <i class="fas fa-fw fa-folder"></i>
