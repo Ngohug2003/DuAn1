@@ -11,6 +11,11 @@ function getBinhLuan($idsp){
 function getAllBinhLuan(){
     $sql  = "SELECT * FROM binhluan  JOIN sanpham ON binhluan.id_sanpham = sanpham.id_sanpham JOIN users ON binhluan.id_user = users.id_user ";   
     $getAllBinhLuan = pdo_query($sql);
+
     return $getAllBinhLuan;
    }
+   function delete_binhluan($id_binhluan){
+    $sql = "DELETE FROM binhluan WHERE id_binhluan = ".$id_binhluan;
+    pdo_execute($sql);
+}
 ?>

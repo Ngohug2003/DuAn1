@@ -17,19 +17,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
-                                    foreach($getBinhLuan as $key => $bl){
-                                        echo '<tr>
-                                        <td>'.($key+1).'</td>
-                                        <td>'.$bl['fullname_user'].'</td>
-                                        <td>'.$bl['name_sanpham'].'</td>
-                                        <td>'.$bl['noidung_binhluan'].'</td>
-                                        <td>'.$bl['ngaybinhluan'].'</td>
-                                        <td><a href="index_admin.php?act=delete_binhluan&id_binhluan='.$bl['id_binhluan'].'">Xóa</a></td>
-                                        </tr>';
-                                    }
+                                <?php foreach($getBinhLuan as $key => $bl):?>
+
+                                    <tr>
+                                        <td><?= $key+1 ?></td>
+                                        <td><?= $bl['fullname_user'] ?></td>
+                                        <td><?= $bl['name_sanpham'] ?></td>
+                                        <td><?= $bl['noidung_binhluan'] ?></td>
+                                        <td><?= $bl['ngaybinhluan'] ?></td>
+                                        <td>
+                                         <button class="btn btn-danger btn-sm" onclick="confirmDelete('index_admin.php?act=delete_binhluan&id_binhluan=<?= $bl['id_binhluan'] ?>')">Xóa</button>
+                                            
+                                        </td>
+                                    </tr>
                                     
-                                ?>
+                                 <?php endforeach?>  
                         </table>
                     </div>
                 </div>
