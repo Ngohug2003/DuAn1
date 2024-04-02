@@ -9833,7 +9833,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   margin-bottom: 0;
 }
 .product_variant.quantity input {
-  width: 130px;
+  /* width: 130px; */
   border: 1px solid #ebebeb;
   background: none;
   height: 42px;

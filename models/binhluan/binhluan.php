@@ -8,9 +8,6 @@ function getBinhLuan($idsp){
  $getBinhLuan = pdo_query($sql);
  return $getBinhLuan;
 }
-function getAllBinhLuan(){
-    $sql  = "SELECT * FROM binhluan  JOIN sanpham ON binhluan.id_sanpham = sanpham.id_sanpham JOIN users ON binhluan.id_user = users.id_user ";   
-    $getAllBinhLuan = pdo_query($sql);
-    return $getAllBinhLuan;
-   }
+
+
 ?>

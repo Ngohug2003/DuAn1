@@ -7,6 +7,7 @@ include "../../models/user/taikhoan.php";
 include "../../models/sanpham/list_sanpham.php";
 include "../../models/binhluan/binhluan.php";
 include "../../models/danhmuc/listDanhMuc.php";
+include "../../models/binhluan/binhluan.php";
 include "../admin/header.php";
 $danhmuc =  getListDanhMuc();
 $sanpham = getListSanPham();
@@ -139,18 +140,18 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             
             break;
         case 'update_sanpham':
-            if (isset($_POST['update']) && ($_POST['update'])) {
-               $name_sanpham = $_POST['name_sanpham'];
-               $id_sanpham = $_POST['id_sanpham'];
-               $gia_sanpham = $_POST['gia_sanpham'];
-               $subtitle_sanpham = $_POST['subtitle_sanpham'];
-               $description_sanpham = $_POST['description_sanpham'];
-               $id = $_POST['id'];
+            // if (isset($_POST['update']) && ($_POST['update'])) {
+            //    $name_sanpham = $_POST['name_sanpham'];
+            //    $id_sanpham = $_POST['id_sanpham'];
+            //    $gia_sanpham = $_POST['gia_sanpham'];
+            //    $subtitle_sanpham = $_POST['subtitle_sanpham'];
+            //    $description_sanpham = $_POST['description_sanpham'];
+            //    $id = $_POST['id'];
                
             //    update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $filename, $subtitle_sanpham, $description_sanpham, $id);
             // chưa viết test sql 
-            }
-            $sanpham = getListSanPham();
+            // }
+            // $sanpham = getListSanPham();
             include "../admin/danhsach/sanpham.php";
             // end sản phẩm 
 
@@ -241,10 +242,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $user = getListUser();
             include "./user/user.php";
             break;
-        case 'dsbinhluan':
-            $getbinhluan = getAllBinhLuan();
-            include "./binhluan/binhluan.php";
-            break;
+
     }
 } else {
     include "../admin/home.php";

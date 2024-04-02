@@ -55,20 +55,20 @@
                             echo '<span style="font-size:20px" class="mr-2 d-none d-lg-inline text-gray-600 small">' . $username_user . '</span';
                         } else {
                         ?>
-                         <?php }
-                         
-                            ?>
+                        <?php }
 
-            </a>
-            <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                </a>
-            </div>
-            </li>
+                        ?>
+
+                    </a>
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                    </div>
+                </li>
 
             </ul>
 
@@ -86,35 +86,36 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th >Name</th>
+                                    <th>Name</th>
                                     <th>Image</th>
                                     <th>Price</th>
-                                    <th style="width: 330px;" >Subtitle</th>
-                                    <th style="width: 300px;" >Description</th>
+                                    <th>Subtitle</th>
+                                    <th>Description</th>
                                     <th>Lượt Xem</th>
                                     <th>Danh Mục</th>
-                                    <th style="width: 140px;">Thao Tác</th>
+                                    <th style="width: 150px;">Thao Tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($sanpham as $sp) : ?>
                                     <tr>
                                         <td><?= $sp['name_sanpham'] ?></td>
-                                        <td >
+                                        <td>
                                             <img style="height: 100px;" src="../../views/assets/img/product/<?= $sp['image_sanpham'] ?>" alt="">
                                         </td>
                                         <td><?= $sp['gia_sanpham'] ?> VND</td>
                                         <td><?= substr($sp['subtitle_sanpham'], 0, 30) ?><?= strlen($sp['subtitle_sanpham']) > 30 ? '...' : '' ?></td>
-                                        <td><?= substr($sp['description_sanpham'], 0, 30) ?><?= strlen($sp['description_sanpham']) > 30? '...' : '' ?></td>
+                                        <td><?= substr($sp['description_sanpham'], 0, 30) ?><?= strlen($sp['description_sanpham']) > 30 ? '...' : '' ?></td>
                                         <td><?= $sp['luotxem_sanpham'] ?></td>
                                         <td><?= $sp['name_danhmuc'] ?></td>
-                                        <td>
+                                        <td style="display: flex; border-bottom:none ;">
                                             <!-- <a class="btn btn-danger btn-sm" href="">Xóa</a> -->
-                                            <button class="btn btn-danger btn-sm" onclick="confirmDelete('index_admin.php?act=delete_sanpham&id_sanpham=<?= $sp['id_sanpham']?>')">Xóa</button>
-                                           
-                                            <a class="btn btn-warning  btn-sm" href="index_admin.php?act=detail_sanpham&id_sanpham=<?= $sp['id_sanpham']?>">Sửa</a>
+                                            <div > <button class="btn btn-danger btn-sm" onclick="confirmDelete('index_admin.php?act=delete_sanpham&id_sanpham=<?= $sp['id_sanpham'] ?>')">Xóa</button>
+                                            </div>
+                                            <div style="margin-left: 20px;"> <a class="btn btn-warning  btn-sm" href="index_admin.php?act=detail_sanpham&id_sanpham=<?= $sp['id_sanpham'] ?>">Sửa</a>
+                                            </div>
                                         </td>
-                                        
+
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>

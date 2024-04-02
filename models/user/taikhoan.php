@@ -18,6 +18,11 @@ $sql = "SELECT * FROM users WHERE username_user='" . $username . "' AND password
 $tk = pdo_query_one($sql);
 return $tk ;
 }
+// function get_password($password){
+//     $sql = "SELECT * FROM users WHERE password_user='" . $password . "";
+//     $password = pdo_query_one($sql);
+//     return $password;
+// }
 function check_user_email($email_user){
     $sql = "SELECT * FROM users WHERE email_user='" . $email_user . "'";
     $tk = pdo_query_one($sql);
