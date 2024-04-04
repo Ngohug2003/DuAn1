@@ -34,7 +34,7 @@
 
 
                 <div class="product_d_right">
-                    <form action="index.php?act=giohang" method="post">
+                    <form action="index.php?act=addToCart" method="post">
                         <h1><a href="#"><?= $name_sanpham ?></a></h1>
                         <?php
                         // Giả sử $sp['gia_sanpham'] là giá của sản phẩm (kiểu số)
@@ -53,8 +53,9 @@
                             <label>Số Lượng</label>
                             <input name="quantity" min="1" max="100" value="1" type="number">
                             <input type="hidden" name="name_sanpham" id="" value="<?= $name_sanpham ?>">
-                            <input type="hidden" name="gia_sanpham" id="" value="<?= $gia_sanpham_format ?>">
+                            <input type="hidden" name="gia_sanpham" id="" value="<?= $gia_sanpham?>">
                             <input type="hidden" name="image_sanpham" id="" value="<?= $image_sanpham ?>">
+                            <input type="hidden" name="id_sanpham" id="" value="<?= $id_sanpham ?>">
                             <input   type="submit" style="background-color: #09c6ab; width: 240px;" class="btn bg-yellowhung text-uppercase text-white me-3" value="Thêm vào giỏ hàng" name="addgiohang">
 
                         </div>

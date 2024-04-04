@@ -1,5 +1,6 @@
 <?php
 session_start();
+if(!isset($_SESSION['giohang'])) $_SESSION['giohang'] =[];
 ob_start();
 include "./models/connect.php";
 include "./models/user/taikhoan.php";
@@ -148,28 +149,68 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     
                         addBinhLuan($noidung_binhluan,$id_user,$id_sanpham,$ngaybinhluan);
                        header('location:index.php?act=chitietsanpham&idsp='.$id_sanpham);
-                        
-                 
+                
                 }
-
                 include "./views/chitietsp.php";
             } 
             include "./views/chitietsp.php";
             break;
             // giỏ hàng 
-            // 
-        case 'giohang':
-            if(isset($_POST['addgiohang'])  && $_POST['addgiohang']){
-                $quantity = $_POST['quantity'];
-                $name_sanpham = $_POST['name_sanpham'];
-                $gia_sanpham = $_POST['gia_sanpham'];
-                $image_sanpham = $_POST['image_sanpham'];
-
+            //
+            case 'giohang': 
                 
-
-            }
-            include "./views/giohang.php";
-            break;
+                include "./views/giohang.php";
+                break; 
+                case 'addToCart': 
+                    if(isset($_POST['addgiohang']) && $_POST['addgiohang']){
+                        $id_sanpham  = $_POST['id_sanpham'];
+                        $quantity = $_POST['quantity'];
+                        $name_sanpham = $_POST['name_sanpham'];
+                        $gia_sanpham = $_POST['gia_sanpham'];
+                        $image_sanpham = $_POST['image_sanpham'];
+                        
+                        // Kiểm tra xem giỏ hàng đã được khởi tạo chưa
+                        if(isset($_SESSION['giohang'])) {
+                            $found = false;
+                            // Duyệt qua từng sản phẩm trong giỏ hàng
+                            foreach ($_SESSION['giohang'] as &$item) {
+                                if($item[2] === $name_sanpham) {
+                                    // Nếu sản phẩm đã tồn tại trong giỏ hàng, cập nhật số lượng
+                                    $item[1] += $quantity;
+                                    $found = true;
+                                    break;
+                                }
+                            }
+                            unset($item); // Loại bỏ reference sau khi vòng lặp kết thúc
+                            
+                            // Nếu sản phẩm không tồn tại trong giỏ hàng, thêm mới sản phẩm vào giỏ hàng
+                            if(!$found) {
+                                $_SESSION['giohang'][] = array($id_sanpham, $quantity, $name_sanpham, $gia_sanpham, $image_sanpham);
+                            }
+                        } else {
+                            // Nếu giỏ hàng chưa được khởi tạo, tạo mới giỏ hàng và thêm sản phẩm vào đó
+                            $_SESSION['giohang'][] = array($id_sanpham, $quantity, $name_sanpham, $gia_sanpham, $image_sanpham);
+                        }
+                    }
+                    include "./views/giohang.php";
+                    break;
+                
+            case 'delToCart': 
+                if (isset($_GET['i']) && ($_GET['i'] > 0)) {
+                    if (count($_SESSION['giohang']) > 1) {
+                        array_splice($_SESSION['giohang'], $_GET['i'], 1);
+                        header('location:index.php?act=giohang');
+                    } else {
+                        unset($_SESSION['giohang']);
+                        header('location:index.php?act=giohang');
+                    }
+                } else {
+                    if (isset($_SESSION['giohang'])) unset($_SESSION['giohang']);
+                    header('location:index.php?act=giohang');
+                }
+             
+                // include "./views/giohang.php";
+                break;
         default:
             include "./views/home.php";
             break;

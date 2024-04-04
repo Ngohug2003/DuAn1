@@ -2,7 +2,7 @@
 $hideSlideshow = false; // Mặc định hiển thị slideshow
 
 // Kiểm tra nếu tham số act là dangnhap
-if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chitietsanpham' || $_GET['act'] == 'dangky' || $_GET['act'] == 'user' || $_GET['act'] == 'quenmk'  || $_GET['act'] == 'giohang')) {
+if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chitietsanpham' || $_GET['act'] == 'dangky' || $_GET['act'] == 'user' || $_GET['act'] == 'quenmk'  || $_GET['act'] == 'addToCart')) {
     $hideSlideshow = true; // Ẩn slideshow
 }
 ?>
@@ -18,6 +18,8 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon " type="image/png" href="./views/assets/img/logo/logo_computer.png">
+
     <!-- CSS 
     ========================= -->
     <!--bootstrap min css-->
