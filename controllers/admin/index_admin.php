@@ -245,6 +245,16 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $getBinhLuan = getAllBinhLuan();
             include "./binhluan/binhluan.php";
             break;
+        case 'delete_binhluan':
+                if (isset($_GET['id_binhluan']) && $_GET['id_binhluan'] > 0) {
+                    delete_binhluan($_GET['id_binhluan']);
+                    echo '<script>alert("Xóa bình luận thành công!");</script>';
+                    
+                }
+                header('Location: index_admin.php?act=dsbinhluan');
+                $getBinhLuan = getAllBinhLuan();
+            // include "./binhluan/binhluan.php";
+            break;
     }
 } else {
     include "../admin/home.php";
