@@ -1,11 +1,11 @@
-    <div class="breadcrumbs_area">
+<div class="breadcrumbs_area">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb_content">
                         <ul>
-                            <li><a href="index.php">Trang chủ</a></li>
-                            <li>Giỏ hàng</li>
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li>Đơn hàng</li>
                         </ul>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th class="product_remove">Xóa</th>
+                                            <th class="product_remove">Hủy đơn hàng</th>
                                             <th class="product_thumb">Ảnh</th>
                                             <th class="product_name">Sản phẩm</th>
                                             <th class="product-price">Giá</th>
@@ -76,51 +76,11 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="cart_submit">
-                            <input type="submit" style="background-color: #09c6ab;"  class="btn bg-yellowhung text-uppercase text-white me-3"  name="updateSL" value="Cập nhật giỏ hàng">
-
-
-                        
-                            </div>
                         </div>
                     </div>
                 </div>
                 <!--coupon code area start-->
-                <div class="coupon_area">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                  
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="coupon_code right">
-                                <h3>Tổng đơn hàng</h3>
-                                <div class="coupon_inner">
-                                    <div class="cart_subtotal">
-                                        <!-- <p>Tổng</p>
-                                        <p class="cart_amount">$215</p> -->
-                                    </div>
-                                    <div class="cart_subtotal ">
-                                        <!-- <p>Khuyến mại</p>
-                                        <p class="cart_amount"> $30</p> -->
-                                    </div>
-                                            <?php  
-                                             
-                                             $tongtien = $tongtiendonhang;
-                                             $tongtiendonhang_format = number_format($tongtien, 0, '', '.') . " VND";
-                                            ?>
-
-                                    <div class="cart_subtotal">
-                                        <p>Số tiền phải thanh toán</p>
-                                        <p class="cart_amount"><?=  $tongtiendonhang_format ?></p>
-                                    </div>
-                                    <div class="checkout_btn">
-                                        <a href="index.php?act=thanhtoan">Tiếp tục thanh toán</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            
                 <!--coupon code area end-->
             </form>
         </div>

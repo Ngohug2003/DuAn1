@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-include ".././../global.php";
+// include ".././../global.php";
 include "../../models/connect.php";
 include "../../models/user/taikhoan.php";
 include "../../models/sanpham/list_sanpham.php";

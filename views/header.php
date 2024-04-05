@@ -2,7 +2,7 @@
 $hideSlideshow = false; // Mặc định hiển thị slideshow
 
 // Kiểm tra nếu tham số act là dangnhap
-if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chitietsanpham' || $_GET['act'] == 'dangky' || $_GET['act'] == 'user' || $_GET['act'] == 'quenmk'  || $_GET['act'] == 'addToCart')) {
+if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chitietsanpham' || $_GET['act'] == 'dangky' || $_GET['act'] == 'user' || $_GET['act'] == 'quenmk'  || $_GET['act'] == 'addToCart' || $_GET['act'] == 'donhang' || $_GET['act'] == 'thanhtoan' ) ) {
     $hideSlideshow = true; // Ẩn slideshow
 }
 ?>
@@ -120,6 +120,7 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                                     ?>
 
                                         </li>
+                                 
                                         <li><a href="index.php?act=giohang">Giỏ Hàng</a></li>
                                         <li><a href="index.php?act=dangxuat">Logout</a></li>
 
