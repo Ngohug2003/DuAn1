@@ -114,7 +114,6 @@
                                         <p class="cart_amount"><?=  $tongtiendonhang_format ?></p>
                                     </div>
                                     <div class="checkout_btn">
-                                        <a href="thanhtoan.html">Tiếp tục thanh toán</a>
                                         
                                         <a href="index.php?act=thanhtoan">Tiếp tục thanh toán</a>
                                     </div>

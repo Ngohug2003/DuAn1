@@ -23,7 +23,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case 'user':
             if (isset($_GET['id_user']) && $_GET['id_user'] > 0) {
                 $one_user = getOneUser($_GET['id_user']);
-
+                $listDonHang =  load_bill_order($_SESSION['username']['id_user']);
             }
 
             if (isset($_POST['luu_thongtin']) && $_POST['luu_thongtin']) {
