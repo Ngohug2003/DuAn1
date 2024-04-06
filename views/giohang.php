@@ -13,7 +13,7 @@
         </div>
     </div>
     <?php
-    var_dump($_SESSION['giohang'])
+    // var_dump($_SESSION['giohang'])
 
     ?>
     <!--breadcrumbs area end-->
@@ -112,6 +112,7 @@
                                     </div>
                                     <div class="checkout_btn">
                                         <a href="thanhtoan.html">Tiếp tục thanh toán</a>
+                                        
                                     </div>
                                 </div>
                             </div>

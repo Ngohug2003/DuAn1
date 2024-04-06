@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-include ".././../global.php";
+
 include "../../models/connect.php";
 include "../../models/user/taikhoan.php";
 include "../../models/sanpham/list_sanpham.php";
@@ -139,19 +139,32 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             
             break;
         case 'update_sanpham':
-            // if (isset($_POST['update']) && ($_POST['update'])) {
-            //    $name_sanpham = $_POST['name_sanpham'];
-            //    $id_sanpham = $_POST['id_sanpham'];
-            //    $gia_sanpham = $_POST['gia_sanpham'];
-            //    $subtitle_sanpham = $_POST['subtitle_sanpham'];
-            //    $description_sanpham = $_POST['description_sanpham'];
-            //    $id = $_POST['id'];
+            if (isset($_POST['update']) && ($_POST['update'])) {
+               $name_sanpham = $_POST['name_sanpham'];
+               $id_sanpham = $_POST['id_sanpham'];
+               $gia_sanpham = $_POST['gia_sanpham'];
+               $subtitle_sanpham = $_POST['subtitle_sanpham'];
+               $description_sanpham = $_POST['description_sanpham'];
+               //update 
+               $filename = $_FILES['image_sanpham']['name'];
+               $target_dir = "../../views/assets/img/product/";
+               $target_file = $target_dir . basename($_FILES['image_sanpham']['name']);
+               if (empty($filename)) {
+                   update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $subtitle_sanpham, $description_sanpham,);
+                   $thongbao = "Sua thanh cong";
+               }
+               else if (move_uploaded_file($_FILES["image_sanpham"]["tmp_name"], $target_file)) {
+                       update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $subtitle_sanpham, $description_sanpham,);
+                       $thongbao = "<script>alert('Update sản phẩm thanh công'); window.location.href = 'index_admin.php?act=sanpham';</script>";   
+                   }
+               else {
+                   $thongbao  = "Sua khong thanh cong";
+               }
                
-            //    update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $filename, $subtitle_sanpham, $description_sanpham, $id);
-            // chưa viết test sql 
-            // }
-            // $sanpham = getListSanPham();
-            include "../admin/danhsach/sanpham.php";
+            }
+            $sanpham = getListSanPham();
+            include "./danhsach/sanpham.php";
+            break;
             // end sản phẩm 
 
 

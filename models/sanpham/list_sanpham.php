@@ -46,7 +46,12 @@ function delete_sanpham($id_sanpham){
     $sql = "DELETE FROM sanpham WHERE id_sanpham = ".$id_sanpham;
     pdo_execute($sql);
 }
-
+function update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $subtitle_sanpham, $description_sanpham,){
+    {
+        $sql = "UPDATE sanpham SET name_sanpham='" . $name_sanpham . "', gia_sanpham='" . $gia_sanpham . "',subtitle_sanpham='" . $subtitle_sanpham . "',description_sanpham='" . $description_sanpham . "' WHERE id_sanpham =".$id_sanpham;
+        pdo_execute($sql);
+    }
+}
 
 
 ?>

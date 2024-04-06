@@ -1,4 +1,5 @@
 <?php
+
 $hideSlideshow = false; // Mặc định hiển thị slideshow
 
 // Kiểm tra nếu tham số act là dangnhap
@@ -112,7 +113,9 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                                             if (isset($_SESSION['username'])) {
                                                                 extract($_SESSION['username']);
                                                                 echo '<a href="index.php?act=user&id_user=' . $id_user . '">' . $username_user . '</a>';
-                                                            } else {
+                                                                echo '<a href=".././controllers/admin/index_admin.php">Dashboard</a>';
+                                                            }
+                                                            else {
                                                             ?>
                                                         <li class="nav-item me-3"><a href="index.php?act=dangnhap">Login</a></li>
                                                     <?php
@@ -120,6 +123,7 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                                     ?>
 
                                         </li>
+                                        
                                         <li><a href="index.php?act=giohang">Giỏ Hàng</a></li>
                                         <li><a href="index.php?act=dangxuat">Logout</a></li>
 
