@@ -114,12 +114,9 @@
                                         <p class="cart_amount"><?=  $tongtiendonhang_format ?></p>
                                     </div>
                                     <div class="checkout_btn">
-<<<<<<< HEAD
                                         <a href="thanhtoan.html">Tiếp tục thanh toán</a>
                                         
-=======
                                         <a href="index.php?act=thanhtoan">Tiếp tục thanh toán</a>
->>>>>>> 862d1095f1325d4628ae5a2ae8a181eb230b025b
                                     </div>
                                 </div>
                             </div>
