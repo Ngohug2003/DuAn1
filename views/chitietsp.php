@@ -193,7 +193,7 @@
                         <article class="single_product">
                             <figure>
                                 <div class="product_thumb">
-                                    <a class="primary_img" href="product-details.html"><img src="./views/assets/img/product/<?= $sp['image_sanpham'] ?>" alt=""></a>
+                                    <a class="primary_img" href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham'] ?>"><img src="./views/assets/img/product/<?= $sp['image_sanpham'] ?>" alt=""></a>
                                     <!-- <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product2.jpg" alt=""></a> -->
                                     <div class="action_links">
                                         <ul>

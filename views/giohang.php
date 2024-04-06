@@ -4,7 +4,7 @@
                 <div class="col-12">
                     <div class="breadcrumb_content">
                         <ul>
-                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="index.php">Trang chủ</a></li>
                             <li>Giỏ hàng</li>
                         </ul>
                     </div>
@@ -21,7 +21,7 @@
     <!--shopping cart area start -->
     <div class="shopping_cart_area mt-60">
         <div class="container">
-            <form action="#">
+            <form action="index.php?act=capnhapsl" method="post">
                 <div class="row">
                     <div class="col-12">
                         <div class="table_desc">
@@ -47,8 +47,7 @@
                                         <?php foreach (($_SESSION['giohang']) as  $key => $item) : ?>
                                             <?php
                                             $tt = $item[3] * $item[1];
-                                            $tongtiendonhang += $tt;
-                                          
+                                            $tongtiendonhang += $tt;     
                                             ?>
                                             <tr>
 
@@ -69,7 +68,8 @@
                                                
                                                 ?>
                                                 <td class="product-price"><?= $gia_sanpham_format ?></td>
-                                                <td class="product_quantity"><input min="1" max="100" value="<?= $item[1] ?>" type="number"></td>
+                                                <td class="product_quantity"><input name="newquantity"  min="1" max="100" value="<?= $item[1] ?>" type="number"></td>
+                                                <input type="hidden" name="id_sanpham" value="<?= $item[0]?>" id="">
                                                 <td class="product_total"><?= $tongtien_format ?></td>
                                             </tr>
                                         <?php endforeach ?>
@@ -77,7 +77,10 @@
                                 </table>
                             </div>
                             <div class="cart_submit">
-                                <button type="submit">Cập nhật giỏ hàng</button>
+                            <input type="submit" style="background-color: #09c6ab;"  class="btn bg-yellowhung text-uppercase text-white me-3"  name="updateSL" value="Cập nhật giỏ hàng">
+
+
+                        
                             </div>
                         </div>
                     </div>
@@ -86,7 +89,7 @@
                 <div class="coupon_area">
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
-
+                  
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <div class="coupon_code right">
@@ -111,8 +114,12 @@
                                         <p class="cart_amount"><?=  $tongtiendonhang_format ?></p>
                                     </div>
                                     <div class="checkout_btn">
+<<<<<<< HEAD
                                         <a href="thanhtoan.html">Tiếp tục thanh toán</a>
                                         
+=======
+                                        <a href="index.php?act=thanhtoan">Tiếp tục thanh toán</a>
+>>>>>>> 862d1095f1325d4628ae5a2ae8a181eb230b025b
                                     </div>
                                 </div>
                             </div>

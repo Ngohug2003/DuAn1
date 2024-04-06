@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="index.php">Trang chủ</a></li>
                         <li>Tài Khoản của tôi</li>
                     </ul>
                 </div>
@@ -41,31 +41,34 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Đơn hàng</th>
+                                            <th>STT</th>
+                                            <th>Mã đơn hàng</th>
                                             <th>Ngày đặt</th>
-                                            <th>Trạng thái</th>
                                             <th>Tổng tiền</th>
+                                            <th>Trạng thái</th>                                        
                                             <th>Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>13/3/2024</td>
-                                            <td><span class="success">Đăng vận chuyển</span></td>
-                                            <td>$25.00 với 1 sản phẩm</td>
-                                            <td><a href="cart.html" class="view">Xem chi tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>13/3/2024</td>
-                                            <td><span class="success">Đăng vận chuyển</span></td>
-                                            <td>$25.00 với 1 sản phẩm</td>
-                                            <td><a href="cart.html" class="view">Xem chi tiết</a></td>
-                                        </tr>
+                                        
+                                        <?php foreach ($listDonHang as $key => $dh) : ?>
+                                         <?php    $trangthaidonhang= trangThaiDonHang($dh['trangthaidonhang']);?>
+                                            <tr>
+                                                <td><?= $key + 1 ?></td>
+                                                <td><?= $dh['madh'] ?></td>
+                                                <td><?= $dh['ngaydathang'] ?></td>
+                                                <td><?= $dh['tongtienthanhtoan'] ?></td>
+                                                <td><span class="success"><?= $trangthaidonhang?></span></td>
+                                                
+                                                <td><a href="index.php?act=donhang&id_donhang=<?= $dh['id_order']?>" class="view">Xem chi tiết</a></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+
                                     </tbody>
                                 </table>
                             </div>
+
+                            
                         </div>
 
 
@@ -74,7 +77,7 @@
                             <div class="login">
                                 <div class="login_form_container">
                                     <div class="account_login_form">
-                                        <form action="" method="post"  enctype="multipart/form-data"> <br>
+                                        <form action="" method="post" enctype="multipart/form-data"> <br>
                                             <img style="height: 70px; border-radius: 50%;" src="./views/assets/img/avatar/<?= $one_user['image_user'] ?>" alt="Avatar"><br>
                                             <label>Avatar</label>
                                             <input type="file" name="image_user" id="">
