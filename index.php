@@ -7,10 +7,8 @@ include "./models/user/taikhoan.php";
 include "./models/sanpham/list_sanpham.php";
 include "./models/danhmuc/listDanhMuc.php";
 include "./models/binhluan/binhluan.php";
-<<<<<<< HEAD
-=======
 include "./models/donhang/donhang.php";
->>>>>>> 862d1095f1325d4628ae5a2ae8a181eb230b025b
+
 include "./views/header.php";
 $sanpham = getListSanPham();
 $listsanpham = getListSanPham_noibat();
@@ -25,10 +23,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case 'user':
             if (isset($_GET['id_user']) && $_GET['id_user'] > 0) {
                 $one_user = getOneUser($_GET['id_user']);
-<<<<<<< HEAD
-=======
-                $listDonHang =  load_bill_order($_SESSION['username']['id_user']); 
->>>>>>> 862d1095f1325d4628ae5a2ae8a181eb230b025b
+
             }
 
             if (isset($_POST['luu_thongtin']) && $_POST['luu_thongtin']) {
@@ -202,9 +197,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     }
                     include "./views/giohang.php";
                     break;
-<<<<<<< HEAD
-                
-=======
                       case 'giohang': 
                       
                          include "./views/giohang.php";
@@ -304,7 +296,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                             include "./views/donhang.php";
                             break;
                 // xóa giỏ hàng 
->>>>>>> 862d1095f1325d4628ae5a2ae8a181eb230b025b
+
             case 'delToCart': 
                 if (isset($_GET['i']) && ($_GET['i'] > 0)) {
                     if (count($_SESSION['giohang']) > 1) {
@@ -321,10 +313,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
              
                 // include "./views/giohang.php";
                 break;
-<<<<<<< HEAD
-=======
+
              
->>>>>>> 862d1095f1325d4628ae5a2ae8a181eb230b025b
         default:
             include "./views/home.php";
             break;
