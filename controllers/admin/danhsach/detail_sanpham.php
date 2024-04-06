@@ -13,7 +13,7 @@
         </div>
         <div style="height: 100px;" class="mb-3">
             <label for="">Ảnh</label>
-            <!-- <input name="image_sanpham" value="" type="text" class="form-control" aria-label="file example" > -->
+            <input name="image_sanpham" value="<?= $one_sp['image_sanpham'] ?>" type="hidden" class="form-control" aria-label="file example" >
             <img class="mw-100 mh-100 " src="../../views/assets/img/product/<?= $one_sp['image_sanpham'] ?>" alt="ảnh sản phẩm">
         </div>
         <div class="mb-3">
@@ -30,7 +30,7 @@
         </div>
         <div>
             <label class="form-label " for="">Danh Mục</label>
-            <select name="id_danhmuc" class="form-select" aria-label="Default select example">
+            <select name="danhmuc"   class="form-select" aria-label="Default select example">
                 <?php foreach ($danhmuc as $dm) : ?>
                     <?php if ($dm['id_danhmuc'] == $one_sp['id_danhmuc']) : ?>
                         <option value="<?= $dm['id_danhmuc'] ?>" selected><?= $dm['name_danhmuc'] ?></option>
@@ -44,7 +44,7 @@
         <!-- sumbit  -->
         <div class="mt-4">
             <input type="hidden" value="<?= $one_sp['id_sanpham'] ?>" name="id_sanpham" id="">
-            <input class="btn btn-success " type="submit" name="update" id="" value="Update ">
+            <input class="btn btn-success " type="submit" name="update_sanpham" id="" value="Update ">
             <a class="btn btn-secondary " href="index_admin.php?act=sanpham">Danh Sách</a>
         </div>
     </form>

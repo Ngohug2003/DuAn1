@@ -10,7 +10,7 @@
                                        <a href="index.html"><img style="height: 100px;" src="./views/assets/img/logo/logo_computer.png" alt="Ảnh lgo"></a>
                                    </div> -->
                                 <div class="footer_desc">
-                                    <p>Chúng tôi là một nhóm gồm các nhà thiết kế và phát triển tạo ra Mẫu HTML, Woocommerce, Shopify Theme chất lượng cao.</p>
+                                    <p>Chúng tôi là sẽ luôn mang đến cho khách hàng những dịch vụ và trải nghiệm tốt nhất về website</p>
                                 </div>
 
                                 <p><span>Address:</span>FPT Polytechnic Trịnh Văn Bô</p>

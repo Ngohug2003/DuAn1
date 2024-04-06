@@ -153,11 +153,11 @@
                                 <a href="blog-details.html"><img src="assets/img/blog/blog1.jpg" alt=""></a>
                             </div>
                             <figcaption class="blog_content">
-                                <h4 class="post_title"><a href="blog-details.html">Hè sele sập giá</a></h4>
+                                <h4 class="post_title"><a href="blog-details.html">Nếu chơi game thì mẫu laptop MSI gaming Intel nào đáng mua nhất trong tháng 4 chưa?</a></h4>
                                 <div class="articles_date">
-                                    <span>08.03.2024</span>
+                                    <span>29.03.2024</span>
                                 </div>
-                                <p class="post_desc">Tích hợp công nghệ chống nắng tiên tiến từ Nhật Bản, tạo nên chất liệu có khả năng phản xạ tia UV và hấp thụ tia UV, ngăn chặn hơn 90%* tia UV, giúp bảo vệ tối ưu dưới ánh nắng mặt trời.</p>
+                                <p class="post_desc">Mở đầu cho danh sách TOP các mẫu laptop MSI chuyên game lần này, mẫu MSI Gaming Katana GF66 12UCK (804VN) sẽ là lựa chọn đầu tiên mà mình xin được gửi đến các bạn. Về phần cấu hình, thì chiếc MSI Gaming Katana GF66 12UCK (804VN) mang tới con chip Intel Core i7 12650H </p>
                                 <footer class="btn_more">
                                     <a href="blog-details.html">Đọc thêm</a>
                                 </footer>
@@ -172,12 +172,12 @@
                                 <a href="blog-details.html"><img src="assets/img/blog/blog2.jpg" alt=""></a>
                             </div>
                             <figcaption class="blog_content">
-                                <h4 class="post_title"><a href="blog-details.html">Thời Trang hè 2024</a></h4>
+                                <h4 class="post_title"><a href="blog-details.html">ExpertBook B9 OLED - laptop cho doanh nhân mỏng nhẹ nhất của Asus</a></h4>
                                 <div class="articles_date">
-                                    <span>08.03.2024</span>
+                                    <span>30.03.2024</span>
 
                                 </div>
-                                <p class="post_desc">Tích hợp công nghệ chống nắng tiên tiến từ Nhật Bản, tạo nên chất liệu có khả năng phản xạ tia UV và hấp thụ tia UV, ngăn chặn hơn 90%* tia UV, giúp bảo vệ tối ưu dưới ánh nắng mặt trời.</p>
+                                <p class="post_desc">Mẫu ExpertBook B9 OLED (B9403CVA) có cân nặng chỉ 990 gram cùng màn hình 14 inch, cấu hình dùng chip Core i7-1355U, giá 55,99 triệu đồng cho bản RAM 32 GB.</p>
                                 <footer class="btn_more">
                                     <a href="blog-details.html">Đọc thêm</a>
                                 </footer>
