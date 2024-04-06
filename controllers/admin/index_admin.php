@@ -1,11 +1,8 @@
 <?php
 session_start();
 ob_start();
-<<<<<<< HEAD
 
-=======
 // include ".././../global.php";
->>>>>>> 862d1095f1325d4628ae5a2ae8a181eb230b025b
 include "../../models/connect.php";
 include "../../models/user/taikhoan.php";
 include "../../models/sanpham/list_sanpham.php";
@@ -142,7 +139,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             break;
         case 'update_sanpham':
-<<<<<<< HEAD
+
             if (isset($_POST['update']) && ($_POST['update'])) {
                $name_sanpham = $_POST['name_sanpham'];
                $id_sanpham = $_POST['id_sanpham'];
@@ -169,25 +166,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $sanpham = getListSanPham();
             include "./danhsach/sanpham.php";
             break;
-=======
-            if (isset($_POST['update_sanpham']) && ($_POST['update_sanpham'])) {
-                $id_sanpham = $_POST['id_sanpham'];
-                $name_sanpham = $_POST['name_sanpham'];
-                $gia_sanpham = $_POST['gia_sanpham'];
-                $subtitle_sanpham = $_POST['subtitle_sanpham'];
-                $description_sanpham = $_POST['description_sanpham'];
-                $danhmuc = $_POST['danhmuc'];
-                $image_sanpham = $_POST['image_sanpham'];
-                $filename = $_FILES['image_sanpham']['name'];
-                $target_dir = "../../views/assets/img/product/";
-                $target_file = $target_dir . basename($_FILES['image_sanpham']['name']);
-                update_sanpham($id_sanpham,$name_sanpham, $gia_sanpham, $filename, $subtitle_sanpham, $description_sanpham, $danhmuc);
-                    $thongbao = "Thêm thành công";
-                }
-            
-            $sanpham = getListSanPham();
-            include "../admin/danhsach/sanpham.php";
->>>>>>> 862d1095f1325d4628ae5a2ae8a181eb230b025b
             // end sản phẩm 
 
 
