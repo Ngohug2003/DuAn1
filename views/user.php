@@ -53,11 +53,17 @@
                                         
                                         <?php foreach ($listDonHang as $key => $dh) : ?>
                                          <?php    $trangthaidonhang= trangThaiDonHang($dh['trangthaidonhang']);?>
+                                     
+                                         <?php ?>
+                                         <?php 
+                                             $tongtiendonhang_format = number_format($dh['tongtienthanhtoan'],0,'','.') ." VND";
+                                         
+                                         ?>
                                             <tr>
                                                 <td><?= $key + 1 ?></td>
                                                 <td><?= $dh['madh'] ?></td>
                                                 <td><?= $dh['ngaydathang'] ?></td>
-                                                <td><?= $dh['tongtienthanhtoan'] ?></td>
+                                                <td><?= $tongtiendonhang_format ?></td>
                                                 <td><span class="success"><?= $trangthaidonhang?></span></td>
                                                 
                                                 <td><a href="index.php?act=donhang&id_donhang=<?= $dh['id_order']?>" class="view">Xem chi tiết</a></td>

@@ -7,6 +7,7 @@ include "../../models/user/taikhoan.php";
 include "../../models/sanpham/list_sanpham.php";
 include "../../models/binhluan/binhluan.php";
 include "../../models/danhmuc/listDanhMuc.php";
+include "../../models/donhang/donhang.php";
 include "../admin/header.php";
 $danhmuc =  getListDanhMuc();
 $sanpham = getListSanPham();
@@ -257,6 +258,13 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 header('Location: index_admin.php?act=dsbinhluan');
                 $getBinhLuan = getAllBinhLuan();
             // include "./binhluan/binhluan.php";
+            break;
+
+            // đơn hàng 
+            
+            case 'dsDonHang':
+             $dsDonHang = loadall_dsDonhang();
+            include "./donhang/donhang.php";
             break;
     }
 } else {

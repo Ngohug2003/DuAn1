@@ -19,13 +19,7 @@ function load_bill_order($id_user)
     $list_bill_order = pdo_query($sql);
     return  $list_bill_order;
 }
-// function load_bill_order($id_user)
-// { 
-//     $sql = "SELECT * FROM bill_order inner join bill_cart on bill_order.id_order = bill_cart.id_order  WHERE id_user=" . $id_user;
-//     // $sql = "SELECT * FROM sanpham inner join danhmuc on sanpham.id_danhmuc = danhmuc.id_danhmuc " ;
-//     $list_bill_order = pdo_query($sql);
-//     return  $list_bill_order;
-// }
+
 function load_bill_cart($id_order)
 {
     $sql = "select * from bill_cart where id_order=" . $id_order;
@@ -53,3 +47,17 @@ function trangThaiDonHang($n)
     }
     return $tt;
 }
+
+function loadall_dsDonhang()
+{
+    $sql = "SELECT * FROM bill_order inner join bill_cart on bill_order.id_order = bill_cart.id_order ";
+    $listdonhang = pdo_query($sql);
+    return $listdonhang;
+}
+// function load_bill_order($id_user)
+// { 
+//     $sql = "SELECT * FROM bill_order inner join bill_cart on bill_order.id_order = bill_cart.id_order  WHERE id_user=" . $id_user;
+//     // $sql = "SELECT * FROM sanpham inner join danhmuc on sanpham.id_danhmuc = danhmuc.id_danhmuc " ;
+//     $list_bill_order = pdo_query($sql);
+//     return  $list_bill_order;
+// }

@@ -114,7 +114,7 @@
                                              $tongtiendonhang_format = number_format($tongtien,0,'','.') ." VND";
                                             ?>
                                         <td><strong><?=  $tongtiendonhang_format ?></strong></td>
-                                        <input type="hidden" name="tongtien_donhang" value="<?=$tongtiendonhang_format?>">
+                                        <input type="hidden" name="tongtien_donhang" value="<?=$tongtien?>">
                                       
                                       
                                     </tr>

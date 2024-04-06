@@ -106,10 +106,16 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapdonhang" aria-expanded="true" aria-controls="collapdonhang">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDonHang" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Danh sách đơn hàng</span>
                 </a>
+                <div id="collapseDonHang" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="index_admin.php?act=dsDonHang">Danh sách đơn hàng</a>
+                    </div>
+
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapthongke" aria-expanded="true" aria-controls="collapthongke">
