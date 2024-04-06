@@ -47,5 +47,8 @@
             <input class="btn btn-success " type="submit" name="update_sanpham" id="" value="Update ">
             <a class="btn btn-secondary " href="index_admin.php?act=sanpham">Danh Sách</a>
         </div>
+        <?php if (isset($thongbao) && !empty($thongbao)) : ?>
+            <p><?php echo $thongbao; ?></p>
+        <?php endif; ?>
     </form>
 </div>

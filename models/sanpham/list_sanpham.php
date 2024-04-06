@@ -42,18 +42,16 @@ function add_sanpham($name_sanpham, $gia_sanpham, $image_sanpham, $subtitle_sanp
     $sql = "insert into sanpham(name_sanpham, gia_sanpham, image_sanpham, subtitle_sanpham, description_sanpham,id_danhmuc) values('$name_sanpham', '$gia_sanpham', '$image_sanpham', '$subtitle_sanpham', '$description_sanpham','$id')";
     pdo_execute($sql);
 }
-function update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $image_sanpham, $subtitle_sanpham, $description_sanpham,$danhmuc){
-    {
-        $sql = "UPDATE `sanpham` SET `name_sanpham`='[$name_sanpham]',`gia_sanpham`='[$gia_sanpham]',`image_sanpham`='[$image_sanpham]',`subtitle_sanpham`='[$subtitle_sanpham]',`description_sanpham`='[$description_sanpham]',`id_danhmuc`='[$danhmuc]' WHERE id_sanpham =".$id_sanpham;
-        pdo_execute($sql);
-       
-    }
-}
 function delete_sanpham($id_sanpham){
     $sql = "DELETE FROM sanpham WHERE id_sanpham = ".$id_sanpham;
     pdo_execute($sql);
 }
-
+function update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $subtitle_sanpham, $description_sanpham,){
+    {
+        $sql = "UPDATE sanpham SET name_sanpham='" . $name_sanpham . "', gia_sanpham='" . $gia_sanpham . "',subtitle_sanpham='" . $subtitle_sanpham . "',description_sanpham='" . $description_sanpham . "' WHERE id_sanpham =".$id_sanpham;
+        pdo_execute($sql);
+    }
+}
 
 
 ?>
