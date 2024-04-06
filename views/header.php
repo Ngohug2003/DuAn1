@@ -123,11 +123,6 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                                     ?>
 
                                         </li>
-<<<<<<< HEAD
-                                        
-=======
-                                 
->>>>>>> 862d1095f1325d4628ae5a2ae8a181eb230b025b
                                         <li><a href="index.php?act=giohang">Giỏ Hàng</a></li>
                                         <li><a href="index.php?act=dangxuat">Logout</a></li>
 
