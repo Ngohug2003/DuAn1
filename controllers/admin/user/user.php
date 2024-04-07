@@ -94,7 +94,7 @@
                                     <th>Email</th>
                                     <th>Địa chỉ</th>
                                     <th>Role</th>
-                                    <th style="width:140px;"> Thao tác</th>
+                                    <th style="width: 150px;">Thao Tác</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -109,10 +109,12 @@
                                         <td><?= $user['email_user'] ?></td>
                                         <td><?= $user['diachi_user'] ?></td>
                                         <td><?= $user['role'] ?></td>
-                                        <td>
-                                        <button class="btn btn-danger btn-sm" onclick="confirmDelete('index_admin.php?act=delete_user&id_user=<?= $user['id_user']?>')">Xóa</button>
-                                            <a class="btn btn-warning  btn-sm"  href="index_admin.php?act=detail_user&id_user=<?= $user['id_user']?>">Sửa</a>
-                                         
+                                        <td style="display: flex; border-bottom:none ;">
+                                            <!-- <a class="btn btn-danger btn-sm" href="">Xóa</a> -->
+                                            <div > <button class="btn btn-danger btn-sm" onclick="confirmDelete('index_admin.php?act=delete_user&id_user=<?= $user['id_user']?>')">Xóa</button>
+                                            </div>
+                                            <div style="margin-left: 20px;"> <a class="btn btn-warning  btn-sm" href="index_admin.php?act=detail_user&id_user=<?= $user['id_user']?>">Sửa</a>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>

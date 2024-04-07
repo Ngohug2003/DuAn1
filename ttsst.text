@@ -28,3 +28,8 @@
                         //         $_SESSION['giohang'][] = array($id_sanpham, $quantity, $name_sanpham, $gia_sanpham, $image_sanpham);
                         //     }
                         // }
+
+                          <!-- <option value="0">Chờ xác nhận</option>
+                                    <option value="1">Đã xác nhận</option>
+                                    <option value="2">Đang vận chuyển</option>
+                                    <option value="3">Giao hàng thành công</option> -->

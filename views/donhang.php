@@ -47,7 +47,21 @@
 
                                         ?>
                                         <tr>
-                                            <td class="product_remove"><a href="<?= $del ?>"><i class="fa fa-trash-o"></i></a></td>
+                                            <!-- <td class="product_remove"><a href="index.php?act=huydonhang&id_donhang=<?= $item['id_order'] ?>"><i class="fa fa-trash-o"></i></a></td> -->
+                                            <td class="product_remove">
+                                                <?php if ($listDonHang['trangthaidonhang'] == 0) : ?>
+                                                    <a href="#" onclick="confirmDelete(<?= $item['id_order'] ?>)"><i class="fa fa-trash-o"></i></a>
+                                                <?php else : ?>
+                                                    <!-- <a disab href="#">Hello</i></a> -->
+                                                    <?php $trangthaidonhang = trangThaiDonHang($listDonHang['trangthaidonhang']);
+                                                     $mau = ($listDonHang['trangthaidonhang'] == 'Giao Hàng Thành Công') ? '' : 'green';
+                                                    ?>
+
+                                                    <?php ?>
+                                                    <span style="color: <?= $mau ?>; font-weight: 600;"><?=$trangthaidonhang ?></span>
+                                                <?php endif; ?>
+                                            </td>
+
                                             <td class="product_thumb">
                                                 <a href="index.php?act=chitietsanpham&idsp=<?php echo $item['id_sanpham'] ?>"><img src="./views/assets/img/product/<?= $item['image_sanpham'] ?>" alt=""></a>
                                             </td>
@@ -64,25 +78,26 @@
 
                             <div class="m-4">
                                 <h3>Thông tin người nhận</h3>
-                                <?php foreach ($listDonHang as  $key => $nguoinhan) : ?>
 
-                                    <p>
-                                        <label class="mt-3">Tên người nhận<span>*</span></label>
-                                        <input class="form-control mt-2 " value="<?=$nguoinhan['order_name'] ?>">
-                                    </p>
-                                    <p>
-                                        <label class="mt-3">Địa chỉ<span>*</span></label>
-                                        <input class="form-control mt-2 " value="<?=$nguoinhan['order_diachi'] ?>">
-                                    </p>
-                                    <p>
-                                        <label class="mt-3">Số điện thoại<span>*</span></label>
-                                        <input class="form-control mt-2 " value="<?=$nguoinhan['order_phone'] ?>">
-                                    </p>
-                                    <p>
-                                        <label class="mt-3">Email<span>*</span></label>
-                                        <input class="form-control mt-2 " value="<?=$nguoinhan['order_email'] ?>">
-                                    </p>
-                                <?php endforeach; ?>
+
+                                <p>
+                                    <label class="mt-3">Tên người nhận<span>*</span></label>
+                                    <input disabled class="form-control mt-2 " value="<?= $listDonHang['order_name'] ?>">
+
+                                </p>
+                                <p>
+                                    <label class="mt-3">Địa chỉ<span>*</span></label>
+                                    <input disabled class="form-control mt-2 " value="<?= $listDonHang['order_diachi'] ?>">
+                                </p>
+                                <p>
+                                    <label class="mt-3">Số điện thoại<span>*</span></label>
+                                    <input disabled class="form-control mt-2 " value="<?= $listDonHang['order_phone'] ?>">
+                                </p>
+                                <p>
+                                    <label class="mt-3">Email<span>*</span></label>
+                                    <input disabled class="form-control mt-2 " value="<?= $listDonHang['order_email'] ?>">
+                                </p>
+
                             </div>
 
                         </div>
@@ -96,3 +111,10 @@
         </form>
     </div>
 </div>
+<script>
+    function confirmDelete(id_donhang) {
+        if (confirm("Bạn có chắc chắn muốn xóa đơn hàng này không?")) {
+            window.location.href = 'index.php?act=huydonhang&id_donhang=' + id_donhang;
+        }
+    }
+</script>

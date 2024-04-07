@@ -2,8 +2,8 @@
     <h1 class="text-center mt-5">Thêm User</h1>
     <form action="index_admin.php?act=edit_user" method="post" enctype="multipart/form-data">
         <div style="height: 100px;" class="mb-3">
-            <label for="">Ảnh</label>
-            <!-- <input name="image_sanpham" value="" type="text" class="form-control" aria-label="file example" > -->
+         
+            <input name="current_image" value="<?= $one_user['image_user'] ?>" type="hidden" class="form-control" aria-label="file example" >
             <img style="border-radius: 50%;" class="mw-100 mh-100 " src="../../views/assets/img/avatar/<?= $one_user['image_user'] ?>" alt="ảnh sản phẩm">
         </div>
         <div class="mb-3">

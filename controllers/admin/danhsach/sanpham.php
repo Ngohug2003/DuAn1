@@ -103,7 +103,7 @@
                                         <td>
                                             <img style="height: 100px;" src="../../views/assets/img/product/<?= $sp['image_sanpham'] ?>" alt="">
                                         </td>
-                                        <td><?= $sp['gia_sanpham'] ?> VND</td>
+                                        <td><?= number_format($sp['gia_sanpham']) ?> VND</td>
                                         <td><?= substr($sp['subtitle_sanpham'], 0, 30) ?><?= strlen($sp['subtitle_sanpham']) > 30 ? '...' : '' ?></td>
                                         <td><?= substr($sp['description_sanpham'], 0, 30) ?><?= strlen($sp['description_sanpham']) > 30 ? '...' : '' ?></td>
                                         <td><?= $sp['luotxem_sanpham'] ?></td>

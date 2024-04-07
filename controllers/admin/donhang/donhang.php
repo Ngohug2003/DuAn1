@@ -90,6 +90,7 @@
                                     <th>Mã đơn hàng</th>
                                     <th>Name</th>
                                     <th>Price</th>
+                                    <td>Số lượng</td>
                                     <th>Ngày Đặt Hàng</th>
                                     <th>Trạng thái đơn hàng</th>
                                     <th>Phương thức thanh toán </th>
@@ -98,12 +99,30 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($dsDonHang as $key => $dsdh) : ?>
+                                    <?php    $trangthaidonhang= trangThaiDonHang($dsdh['trangthaidonhang']);
+                                     $phuongthucthanhtoan = phuongThucThanhToan($dsdh['phuongthucthanhtoan']);
+                                    
+                                    ?>
+                                           
+                                         <?php ?>
                                     <tr>
                                     <td><?= $key + 1 ?></td>
-                                    <td><?= $dsdh['madh'] ?></td>
-                                    <td><?= $key + 1 ?></td>
-                                    <td><?= $key + 1 ?></td>
-                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $dsdh['madh'] ?></td>	
+                                    <td><?= $dsdh['name_sanpham'] ?></td>
+                                    <td><?= number_format($dsdh['dongia'])  ?>VND</td>
+                                    <td><?= $dsdh['soluong'] ?></td>
+                                    <td><?= $dsdh['ngaydathang'] ?></td>
+                                    <td><?= $trangthaidonhang ?></td>
+                                    <td><?=  $phuongthucthanhtoan ?></td>
+                                    <td style="display: flex; border-bottom:none ;">
+                                            <!-- <a class="btn btn-danger btn-sm" href="">Xóa</a> -->
+                                            <div >
+                                                 <button class="btn btn-danger btn-sm" onclick="confirmDelete('index_admin.php?act=delete_order&id_order=<?= $dsdh['id_order']?>')">Xóa</button>
+                                    
+                                            </div>
+                                            <div style="margin-left: 20px; width: 130px;"> <a class="btn btn-warning  btn-sm" href="index_admin.php?act=chitiet_bill&id_donhang=<?= $dsdh['id_order']?>">Thông tin chi tiết</a>
+                                            </div>
+                                        </td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>

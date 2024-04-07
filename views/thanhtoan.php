@@ -23,7 +23,7 @@
             <div class="row">
                 <?php   
                 if (isset($_SESSION['username'])){
-                    $username_user = $_SESSION['username']['username_user'];
+                    $fullname_user = $_SESSION['username']['fullname_user'];
                     $diachi_user = $_SESSION['username']['diachi_user'];
                     $phone_user = $_SESSION['username']['phone_user'];
                     $email_user = $_SESSION['username']['email_user'];
@@ -42,7 +42,7 @@
                         <input type="hidden" name="id_user" value="<?= $id_user?>">
                             <div class="col-lg-12 mb-20">
                                 <label>Họ tên <span>*</span></label>
-                                <input type="text" name="username_user" value="<?= $username_user?>">
+                                <input type="text" name="fullname_user" value="<?= $fullname_user?>">
                             </div>
 
                             <div class="col-12 mb-20">

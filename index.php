@@ -22,7 +22,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case 'user':
             if (isset($_GET['id_user']) && $_GET['id_user'] > 0) {
                 $one_user = getOneUser($_GET['id_user']);
-                $listDonHang =  load_bill_order($_SESSION['username']['id_user']); 
+                $listDonHang =  load_bill_orde_all($_SESSION['username']['id_user']); 
             }
 
             if (isset($_POST['luu_thongtin']) && $_POST['luu_thongtin']) {
@@ -263,22 +263,26 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                             if(isset($_SESSION['username'])) $iduser = $_SESSION['username']['id_user'];
                             else $id_user = 0 ;
                             $tongtien_donhang = $_POST['tongtien_donhang'];
-                            $username_user = $_POST['username_user'];
+                            $fullname_user = $_POST['fullname_user'];
                             $diachi_user = $_POST['diachi_user'];
                             $phone_user = $_POST['phone_user'];
                             $email_user = $_POST['email_user'];
-                            $ngaydathang = date('Y-m-d');
+                            date_default_timezone_set('Asia/Ho_Chi_Minh');
+                            $ngaydathang = date('Y-m-d H:i:s');
+                           
+                            
                             $madh = "DAM".rand(0,9999999);
                             $quantitynew = $_POST['quantitynew'];
                             $phuongthucthanhtoan = $_POST['phuongthucthanhtoan'];
-                            var_dump($quantitynew);
-                            $iddh = taodonhang($iduser,$username_user,$diachi_user,$phone_user,$email_user,$tongtien_donhang,$madh,$ngaydathang,$phuongthucthanhtoan);
+                            // var_dump($fullname_user);
+                            $iddh = taodonhang($iduser,$fullname_user,$diachi_user,$phone_user,$email_user,$tongtien_donhang,$madh,$ngaydathang,$phuongthucthanhtoan);
                             // array($id_sanpham, $quantity, $name_sanpham, $gia_sanpham, $image_sanpham);
 
                             foreach($_SESSION['giohang'] as $cart){
                                 itemcart($_SESSION['username']['id_user'],$iddh,$cart[0],$madh,$quantitynew,$cart[3],$cart[2],$cart[4]);
                          
                             }
+                            unset($_SESSION['giohang']);
                             $thongbao = "<script>alert('Đặt hàng thành công, vui lòng đợi xác nhận đơn hàng!'); window.location.href = 'index.php?act=user&id_user=" . $iduser . "';</script>";
 
 
@@ -294,6 +298,23 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                                 }
                             include "./views/donhang.php";
                             break;
+
+                            case 'huydonhang': 
+                                // $listDonHang =  load_bill_order($_SESSION['username']['id_user']); 
+                               
+                                if (isset($_GET['id_donhang']) && $_GET['id_donhang'] > 0) {
+                                    $id_donhang = $_GET['id_donhang'];
+                                     delete_order_user($id_donhang);
+                                     if(isset($_SESSION['username'])) $iduser = $_SESSION['username']['id_user'];
+                                    header("Location: index.php?act=user&id_user=" . $iduser);
+                                    exit();
+                                    // $listCart =  load_bill_cart($_GET['id_donhang']);
+                                    $listDonHang =  load_bill_order($_SESSION['username']['id_user']); 
+                                }
+                            include "./views/donhang.php";
+                            break;
+
+                            
                 // xóa giỏ hàng 
             case 'delToCart': 
                 if (isset($_GET['i']) && ($_GET['i'] > 0)) {

@@ -3,17 +3,17 @@
     <form action="index_admin.php?act=update_sanpham" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label " for="">Sản Phẩm</label>
-            <input value="<?= $one_sp['name_sanpham'] ?>" class="form-control " type="text" name="name_sanpham" id="">
+            <input value="<?= $one_sp['name_sanpham'] ?>" class="form-control " type="text" name="name_sanpham" >
             <span style="color: red"><?php echo isset($error['name_sanpham']['required']) ?  $error['name_sanpham']['required'] : '' ?></span>
         </div>
         <div class="mb-3">
             <label class="form-label " for="">Giá</label>
-            <input value="<?= $one_sp['gia_sanpham'] ?>" class="form-control " type="text" name="gia_sanpham" id="">
+            <input value="<?= $one_sp['gia_sanpham'] ?>" class="form-control " type="text" name="gia_sanpham" >
             <span style="color: red"><?php echo isset($error['gia_sanpham']['required']) ? $error['gia_sanpham']['required'] : '' ?></span>
         </div>
         <div style="height: 100px;" class="mb-3">
             <label for="">Ảnh</label>
-            <input name="image_sanpham" value="<?= $one_sp['image_sanpham'] ?>" type="hidden" class="form-control" aria-label="file example" >
+            <input name="current_image" value="<?= $one_sp['image_sanpham'] ?>" type="hidden" class="form-control" aria-label="file example" >
             <img class="mw-100 mh-100 " src="../../views/assets/img/product/<?= $one_sp['image_sanpham'] ?>" alt="ảnh sản phẩm">
         </div>
         <div class="mb-3">
@@ -43,9 +43,10 @@
         <div class="mt-2"> <span style="color: green"><?php echo isset($thongbao) ? $thongbao : '' ?></span></div>
         <!-- sumbit  -->
         <div class="mt-4">
-            <input type="hidden" value="<?= $one_sp['id_sanpham'] ?>" name="id_sanpham" id="">
-            <input class="btn btn-success " type="submit" name="update_sanpham" id="" value="Update ">
+            <input type="hidden" value="<?= $one_sp['id_sanpham'] ?>" name="id_sanpham" >
             <a class="btn btn-secondary " href="index_admin.php?act=sanpham">Danh Sách</a>
+            <input class="btn btn-success " type="submit" name="update_sanpham"  value="Update ">
+           
         </div>
         <?php if (isset($thongbao) && !empty($thongbao)) : ?>
             <p><?php echo $thongbao; ?></p>

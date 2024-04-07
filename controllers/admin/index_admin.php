@@ -68,7 +68,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $id_danhmuc = $_POST['id_danhmuc'];
                 update_danhmuc($id_danhmuc, $name_danhmuc);
                 $dm = loadone_danhmuc($id_danhmuc);
-                $thongbao = "Cập nhật thành công"; 
+                $thongbao = "Cập nhật thành công";
                 echo "<script>var successMessage = '$thongbao';</script>";
             }
             $danhmuc =  getListDanhMuc();
@@ -141,29 +141,30 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'update_sanpham':
 
-            if (isset($_POST['update']) && ($_POST['update'])) {
-               $name_sanpham = $_POST['name_sanpham'];
-               $id_sanpham = $_POST['id_sanpham'];
-               $gia_sanpham = $_POST['gia_sanpham'];
-               $subtitle_sanpham = $_POST['subtitle_sanpham'];
-               $description_sanpham = $_POST['description_sanpham'];
-               //update 
-               $filename = $_FILES['image_sanpham']['name'];
-               $target_dir = "../../views/assets/img/product/";
-               $target_file = $target_dir . basename($_FILES['image_sanpham']['name']);
-               if (empty($filename)) {
-                   update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $subtitle_sanpham, $description_sanpham,);
-                   $thongbao = "Sua thanh cong";
-               }
-               else if (move_uploaded_file($_FILES["image_sanpham"]["tmp_name"], $target_file)) {
-                       update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $subtitle_sanpham, $description_sanpham,);
-                       $thongbao = "<script>alert('Update sản phẩm thanh công'); window.location.href = 'index_admin.php?act=sanpham';</script>";   
-                   }
-               else {
-                   $thongbao  = "Sua khong thanh cong";
-               }
-               
+            if (isset($_POST['update_sanpham']) && ($_POST['update_sanpham'])) {
+                $id_sanpham  = $_POST['id_sanpham'];
+                $name_sanpham = $_POST['name_sanpham'];
+                $gia_sanpham = $_POST['gia_sanpham'];
+                $filename = $_FILES['image_sanpham']['name'];
+                $target_dir = "../../views/assets/img/product/";
+                $target_file = $target_dir . basename($_FILES['image_sanpham']['name']);
+                $subtitle_sanpham = $_POST['subtitle_sanpham'];
+                $description_sanpham = $_POST['description_sanpham'];
+                $danhmuc = $_POST['danhmuc'];
+                if (!empty($filename)) {
+                    // Nếu có, di chuyển tệp mới vào thư mục và cập nhật tên file
+                    move_uploaded_file($_FILES["image_sanpham"]["tmp_name"], $target_file);
+                } else {
+                    // Nếu không, giữ lại ảnh cũ bằng cách sử dụng tên file hiện tại
+                    $filename = $_POST['current_image'];
+                }
+                update_sanpham($id_sanpham, $name_sanpham, $gia_sanpham, $filename, $subtitle_sanpham, $description_sanpham, $danhmuc);
+                // $thongbao = "<script>alert('Update sản phẩm thành công!'); window.location.href = 'index_admin.php?act=sanpham';</script>";
+                $thongbao = "Cập nhật sản phẩm thành công!";
+                // Đưa ra thông báo bằng JavaScript
+                echo "<script>alert('$thongbao'); window.location.href = 'index_admin.php?act=detail_sanpham&id_sanpham=$id_sanpham';</script>";
             }
+
             $sanpham = getListSanPham();
             include "./danhsach/sanpham.php";
             break;
@@ -171,13 +172,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
 
             // ----------- user --------------------
-
         case 'nguoidung':
             $user =  getListUser();
             include "./user/user.php";
             break;
         case 'add_user':
-             $error = [];
+            $error = [];
             if (isset($_POST['themmoi_user']) && ($_POST['themmoi_user'])) {
                 $username_user = $_POST['username_user'];
                 $password_user = $_POST['password_user'];
@@ -205,12 +205,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 } else if (!preg_match("/^[0-9]{10,11}$/", $phone_user)) {
                     $error['phone_user'] = 'Số điện thoại không hợp lệ';
                 }
-                if(check_username($username_user)){
+                if (check_username($username_user)) {
                     $error['username_user'] = 'Tài khoản đã tồn tại';
                 }
                 if (!$error) {
                     move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
-                    addAllUser($username_user, $password_user, $fullname_user, $phone_user, $email_user, $diachi_user,$filename, $role);
+                    addAllUser($username_user, $password_user, $fullname_user, $phone_user, $email_user, $diachi_user, $filename, $role);
                     echo '<script>alert("Thêm phẩm thành công!");</script>';
                 }
             }
@@ -245,42 +245,76 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $target_dir = "../../views/assets/img/avatar/";
                 $target_file = $target_dir . basename($_FILES['image_user']['name']);
                 $role = $_POST['role'];
-                if (empty($filename)) {
-                    $error['image_user'] = "chưa có name";
-                } else {
+
+                // Kiểm tra xem người dùng có tải lên một tệp mới không
+                if (!empty($filename)) {
+                    // Nếu có, di chuyển tệp mới vào thư mục và cập nhật tên file
                     move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
-                    updateUser($id_user,$username_user, $password_user,$fullname_user,$phone_user,$email_user,$diachi_user,$filename,$role);
-                    echo "<script language='javascript'>alert('Cập nhật tài khoản thành công');</script>";
+                } else {
+                    // Nếu không, giữ lại ảnh cũ bằng cách sử dụng tên file hiện tại
+                    $filename = $_POST['current_image'];
                 }
+
+                // Gọi hàm cập nhật người dùng
+                updateUser($id_user, $username_user, $password_user, $fullname_user, $phone_user, $email_user, $diachi_user, $filename, $role);
+                echo "<script language='javascript'>alert('Cập nhật tài khoản thành công');</script>";
             }
+            // Lấy danh sách người dùng và bao gồm giao diện chỉnh sửa người dùng
             $user = getListUser();
             include "./user/user.php";
             break;
+
+
         case 'dsbinhluan':
             $getBinhLuan = getAllBinhLuan();
             include "./binhluan/binhluan.php";
             break;
         case 'delete_binhluan':
-                if (isset($_GET['id_binhluan']) && $_GET['id_binhluan'] > 0) {
-                    delete_binhluan($_GET['id_binhluan']);
-                    echo '<script>alert("Xóa bình luận thành công!");</script>';
-                    
-                }
-                header('Location: index_admin.php?act=dsbinhluan');
-                $getBinhLuan = getAllBinhLuan();
+            if (isset($_GET['id_binhluan']) && $_GET['id_binhluan'] > 0) {
+                delete_binhluan($_GET['id_binhluan']);
+                echo '<script>alert("Xóa bình luận thành công!");</script>';
+            }
+            header('Location: index_admin.php?act=dsbinhluan');
+            $getBinhLuan = getAllBinhLuan();
             // include "./binhluan/binhluan.php";
             break;
 
             // đơn hàng 
-            
-            case 'dsDonHang':
-             $dsDonHang = loadall_dsDonhang();
+
+        case 'dsDonHang':
+            $dsDonHang = loadall_dsDonhang();
             include "./donhang/donhang.php";
             break;
+        case 'delete_order':
+            if (isset($_GET['id_order']) && $_GET['id_order'] > 0) {
+                delete_order($_GET['id_order']);
+                echo '<script>alert("Xóa đơn hàngthành công!");</script>';
+            }
+            header('Location: index_admin.php?act=dsDonHang');
+            $dsDonHang = loadall_dsDonhang();
+            // include "./binhluan/binhluan.php";
+            break;
+
+        case 'chitiet_bill':
+            if (isset($_GET['id_donhang']) && ($_GET['id_donhang'] > 0)) {
+
+                $bill_chitiet = bill_chitiet($_GET['id_donhang']);
+            }
+            include "./donhang/trangthai.php";
+            break;
+            case 'edit_trangthai':
+                if (isset($_POST['trangthai']) && ($_POST['trangthai'])) {
+                    $id_order = $_POST['id_order'];
+                    $edit_trangthai = $_POST['edit_trangthai'];
+                    update_trangthai($id_order,$edit_trangthai );
+                    $thongbao = "Cập nhật trạng thái thành công!";
+                    echo "<script>alert('$thongbao'); window.location.href = 'index_admin.php?act=dsDonHang';</script>";
+                }
+                include "./donhang/trangthai.php";
+                break;
     }
 } else {
     include "../admin/home.php";
 }
 
 include "../admin/footer.php";
-

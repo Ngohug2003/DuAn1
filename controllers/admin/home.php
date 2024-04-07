@@ -99,7 +99,7 @@
                                         <td style="height: 100px;">
                                             <img style="height: 100px;" src="../../views/assets/img/product/<?= $sp['image_sanpham'] ?>" alt="">
                                         </td>
-                                        <td><?= $sp['gia_sanpham'] ?> VND</td>
+                                        <td><?= number_format($sp['gia_sanpham'] )?> VND</td>
                                         <td><?= $sp['subtitle_sanpham'] ?></td>
                                     </tr>
                                 <?php endforeach ?>
