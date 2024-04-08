@@ -9,6 +9,7 @@ include "../../models/sanpham/list_sanpham.php";
 include "../../models/binhluan/binhluan.php";
 include "../../models/danhmuc/listDanhMuc.php";
 include "../../models/donhang/donhang.php";
+include "../../models/thongke/thongke.php";
 include "../admin/header.php";
 $danhmuc =  getListDanhMuc();
 $sanpham = getListSanPham();
@@ -302,16 +303,33 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             include "./donhang/trangthai.php";
             break;
-            case 'edit_trangthai':
-                if (isset($_POST['trangthai']) && ($_POST['trangthai'])) {
-                    $id_order = $_POST['id_order'];
-                    $edit_trangthai = $_POST['edit_trangthai'];
-                    update_trangthai($id_order,$edit_trangthai );
-                    $thongbao = "Cập nhật trạng thái thành công!";
-                    echo "<script>alert('$thongbao'); window.location.href = 'index_admin.php?act=dsDonHang';</script>";
-                }
-                include "./donhang/trangthai.php";
-                break;
+        case 'edit_trangthai':
+            if (isset($_POST['trangthai']) && ($_POST['trangthai'])) {
+                $id_order = $_POST['id_order'];
+                $edit_trangthai = $_POST['edit_trangthai'];
+                update_trangthai($id_order, $edit_trangthai);
+                $thongbao = "Cập nhật trạng thái thành công!";
+                echo "<script>alert('$thongbao'); window.location.href = 'index_admin.php?act=dsDonHang';</script>";
+            }
+            include "./donhang/trangthai.php";
+            break;
+            // thống kê 
+        case 'thongke':
+            $thongke = loadAll_thongke();
+            include "./thongke/thongke.php";
+            break;
+        case 'bieudo':
+            $thongke = loadAll_thongke();
+            include "./bieudo/bieudo.php";
+            break;
+        case 'thongke_doanhthu':
+            $thongke_doanhthu = loadall_doanhthu();
+            include "./thongke/doanhthu.php";
+            break;
+        case 'bieudo_doanhthu':
+            $thongke_doanhthu = loadall_doanhthu();
+            include "./bieudo/bieudo_doanhthu.php";
+            break;
     }
 } else {
     include "../admin/home.php";

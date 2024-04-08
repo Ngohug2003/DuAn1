@@ -55,20 +55,20 @@
                             echo '<span style="font-size:20px" class="mr-2 d-none d-lg-inline text-gray-600 small">' . $username_user . '</span';
                         } else {
                         ?>
-                         <?php }
-                         
-                            ?>
+                        <?php }
 
-            </a>
-            <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                </a>
-            </div>
-            </li>
+                        ?>
+
+                    </a>
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                    </div>
+                </li>
 
             </ul>
 
@@ -79,55 +79,51 @@
         <div class="container-fluid">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Quản lý người dùng</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Quản lý sản phẩm</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
-                                    <th>Họ Và Tên</th>
-                                    <th>SĐT</th>
-                                    <th>Email</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Role</th>
-                                    <th style="width: 150px;">Thao Tác</th>
+                                    <th>Mã danh mục</th>
+                                    <th>Tên danh mục</th>
+                                    <th>Số lượng</th>
+                                    <th>Giá cao nhất</th>
+                                    <th>Giá thấp nhất</th>
+                                    <th>Giá trung bình</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($user as $key => $user) : ?>
-                                    <tr>     
-                                        <td><?= $key + 1 ?></td>
-                                        <td><?= $user['username_user'] ?></td>
-                                        <td><?= $user['password_user'] ?></td>
-                                        <td><?= $user['fullname_user'] ?></td>
-                                        
-                                        <td><?= $user['phone_user'] ?></td>
-                                        <td><?= $user['email_user'] ?></td>
-                                        <td><?= $user['diachi_user'] ?></td>
-                                        <td><?= $user['role'] ?></td>
-                                        <td style="display: flex; border-bottom:none ;">
-                                            <!-- <a class="btn btn-danger btn-sm" href="">Xóa</a> -->
-                                            <div > <button class="btn btn-danger btn-sm" onclick="confirmDelete('index_admin.php?act=delete_user&id_user=<?= $user['id_user']?>')">Xóa</button>
-                                            </div>
-                                            <div style="margin-left: 20px;"> <a class="btn btn-warning  btn-sm" href="index_admin.php?act=detail_user&id_user=<?= $user['id_user']?>">Sửa</a>
-                                            </div>
-                                        </td>
+                                <?php foreach ($thongke as $key => $tk) : ?>
+                                    <tr>
+                                        <td><?= $tk['madm'] ?></td>
+                                        <td><?= $tk['tendm'] ?></td>
+                                        <td><?= $tk['countsp'] ?></td>
+                                        <td><?= number_format($tk['maxgia']) ?> VND</td>
+                                        <td><?= number_format($tk['mingia']) ?> VND</td>
+                                        <td><?= number_format($tk['avg']) ?> VND</td>
+
+
                                     </tr>
-                                <?php endforeach ?>
+                                <?php endforeach; ?>
+
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>
 
         </div>
         <!-- /.container-fluid -->
+        <div style="margin-left: 27px;">
 
+            <a class="btn btn-primary " href="index_admin.php?act=bieudo">Xem biểu đồ</a>
+        </div>
     </div>
+
     <!-- End of Main Content -->
 
     <!-- Footer -->

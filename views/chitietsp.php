@@ -195,11 +195,7 @@
                                 <div class="product_thumb">
                                     <a class="primary_img" href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham'] ?>"><img src="./views/assets/img/product/<?= $sp['image_sanpham'] ?>" alt=""></a>
                                     <!-- <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product2.jpg" alt=""></a> -->
-                                    <div class="action_links">
-                                        <ul>
-                                            <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
+                                    
                                 </div>
                                 <figcaption class="product_content">
                                     <div class="product_content-header">

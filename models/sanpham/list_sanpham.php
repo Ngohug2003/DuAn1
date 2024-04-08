@@ -25,8 +25,18 @@ function  getSanPham_DanhMuc($idsp,$id_danhmuc){
     return $getSanPham_DanhMuc;
 }
 function search_sanpham($keyword = "",$id_danhmuc = 0){
-    
-    $sql = "SELECT * FROM sanpham WHERE 1 ";
+    if(isset($_GET['trang'])){
+        $page = $_GET['trang'];
+    }else{
+        $page = "";
+    }
+    if($page == '' || $page == 1){
+        $begin = 0 ;
+      
+    }else{
+        $begin = ($page * 6 ) -6 ;
+    }
+    $sql = "SELECT * FROM sanpham WHERE 1  ";
     if ($keyword != "") {
         $sql .= " and name_sanpham like '%" . $keyword . "%'";
     }
@@ -34,7 +44,7 @@ function search_sanpham($keyword = "",$id_danhmuc = 0){
         $sql .= " and id_danhmuc ='" . $id_danhmuc . "'";
     }
 
-    $sql .= " order by id_sanpham desc";
+    $sql .= " order by id_sanpham desc limit $begin,6";
     $dssp = pdo_query($sql);
     return  $dssp;
 }

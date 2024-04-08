@@ -78,12 +78,12 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                             <li><a href="index.php">Trang Chủ</a>
 
                                             </li>
-                                            <li><a href="index.php?act=timkiem">Sản Phẩm<i class="fa fa-angle-down"></i></a>
+                                            <li><a href="index.php?act=sanpham">Sản Phẩm<i class="fa fa-angle-down"></i></a>
                                                 <ul class="sub_menu pages">
-                                                    <li><a href="index.php?act=timkiem&id_danhmuc=1">Macbook</a></li>
-                                                    <li><a href="index.php?act=timkiem&id_danhmuc=2">HP</a></li>
+                                                    <li><a href="index.php?act=sanpham&id_danhmuc=1">Macbook</a></li>
+                                                    <li><a href="index.php?act=sanpham&id_danhmuc=2">HP</a></li>
 
-                                                    <li><a href="index.php?act=timkiem&id_danhmuc=3">Asus</a></li>
+                                                    <li><a href="index.php?act=sanpham&id_danhmuc=3">Asus</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Tin tức</a>
@@ -98,7 +98,7 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                     <ul>
                                         <li class="search_box"><a href="javascript:void(0)"><img src="./views/assets/img/icon/icon-search.png" alt=""></a>
                                             <div class="search_widget">
-                                                <form action="index.php?act=timkiem" method="post">
+                                                <form action="index.php?act=sanpham" method="post">
                                                     <input name="keyword" placeholder="Tìm kiếm sản phẩm.." type="text">
                                                     <button name="search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                                 </form>

@@ -55,7 +55,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                <i class="fas fa-fw fa-folder"></i>
                     <span>Sản phẩm</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -67,7 +67,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                <i class="fas fa-fw fa-folder"></i>
                     <span>Danh Mục</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -124,8 +124,8 @@
                 </a>
                 <div id="collapthongke" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="blank.html">Người dùng</a>
-                        <a class="collapse-item" href="blank.html">Doanh thu</a>
+                        <a class="collapse-item" href="index_admin.php?act=thongke">Biểu đồ danh mục</a>
+                        <a class="collapse-item" href="index_admin.php?act=thongke_doanhthu">Biểu đồ doanh thu</a>
                     </div>
                 </div>
             </li>

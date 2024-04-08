@@ -24,10 +24,7 @@
                                         <div class="product_thumb">
                                             <a class="primary_img" href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham'] ?>"><img src="./views/assets/img/product/<?php echo $sp['image_sanpham'] ?>" alt=""></a>
                                             <div class="action_links">
-                                                <ul>
-                                                    <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-
-                                                </ul>
+                                                
                                             </div>
                                         </div>
                                         <figcaption class="product_content">
@@ -71,7 +68,7 @@
                 <div class="banner-text">
 
                     <p>DAM Computer là nơi bán máy tính laptop uy tin chất lượng nhất .. với giá cả phù hợp </p>
-                    <a href="index.php?act=timkiem">Xem chi tiết</a>
+                    <a href="index.php?act=sanpham">Xem chi tiết</a>
                 </div>
             </div>
         </div>
@@ -97,12 +94,7 @@
                         <figure>
                             <div class="product_thumb">
                                 <a class="primary_img" href="index.php?act=chitietsanpham&idsp=<?php echo $sptop['id_sanpham'] ?>"><img src="./views/assets/img/product/<?php echo $sptop['image_sanpham'] ?>" alt=""></a>
-                                <div class="action_links">
-                                    <ul>
-                                        <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
-
-                                    </ul>
-                                </div>
+                               
                             </div>
                             <figcaption class="product_content">
                                 <div class="product_content-header">
