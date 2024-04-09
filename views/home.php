@@ -29,7 +29,7 @@
                                         </div>
                                         <figcaption class="product_content">
                                             <div style="height: 50px;" class="product_content-header">
-                                                <h4 class="product_name"><a href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham'] ?>"><?php echo $sp['name_sanpham'] ?></a></h4>
+                                                <h4 class="product_name"><a href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham'] ?>"><?= substr($sp['name_sanpham'], 0, 50) ?><?= strlen($sp['name_sanpham']) > 50 ? '...' : '' ?></a></h4>
                                                 <div class="wishlist-btn">
                                                     <a href=""><i class="zmdi zmdi-favorite-outline"></i></a>
                                                 </div>
@@ -98,7 +98,8 @@
                             </div>
                             <figcaption class="product_content">
                                 <div class="product_content-header">
-                                    <h4 class="product_name"><a href="index.php?act=chitietsanpham&idsp=<?php echo $sptop['id_sanpham'] ?>"><?php echo $sptop['name_sanpham'] ?></a></h4>
+                                    <h4 class="product_name"><a href="index.php?act=chitietsanpham&idsp=<?php echo $sptop['id_sanpham'] ?>"><?= substr($sptop['name_sanpham'], 0, 30) ?><?= strlen($sptop['name_sanpham']) > 30 ? '...' : '' ?></a></h4>
+                                   
                                     <div class="wishlist-btn">
                                         <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
                                     </div>

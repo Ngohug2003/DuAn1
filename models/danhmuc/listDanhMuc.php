@@ -1,7 +1,7 @@
 <?php
 
 function getListDanhMuc(){
-    $sql = "SELECT * FROM danhmuc ";
+    $sql = "SELECT * FROM danhmuc";
     $danhmuc = pdo_query($sql);
     return $danhmuc;
 }

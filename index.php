@@ -36,13 +36,25 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $filename = $_FILES['image_user']['name'];
                 $target_dir = "./views/assets/img/avatar/";
                 $target_file = $target_dir . basename($_FILES['image_user']['name']);
-                if (empty($filename)) {
-                    $error['image_user'] = "chưa có ảnh";
-                } else {
-                    move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
+                // if (empty($filename)) {
+                //     $error['image_user'] = "chưa có ảnh";
+                // } else {
+                //     move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
+                //     updateUser($id_user, $username_user, $password_user, $fullname_user, $phone_user, $email_user, $diachi_user, $filename, $role);
+                //     echo "<script language='javascript'>alert('Cập nhật tài khoản thành công');</script>";
+                // }
+                    // Kiểm tra xem người dùng có tải lên một tệp mới không
+                    if (!empty($filename)) {
+                        // Nếu có, di chuyển tệp mới vào thư mục và cập nhật tên file
+                        move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
+                    } else {
+                        // Nếu không, giữ lại ảnh cũ bằng cách sử dụng tên file hiện tại
+                        $filename = $_POST['current_image'];
+                    }
+    
+                    // Gọi hàm cập nhật người dùng
                     updateUser($id_user, $username_user, $password_user, $fullname_user, $phone_user, $email_user, $diachi_user, $filename, $role);
                     echo "<script language='javascript'>alert('Cập nhật tài khoản thành công');</script>";
-                }
             }
             include "./views/user.php";
             break;
@@ -337,6 +349,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
            
         default:
             include "./views/home.php";
+            include "./views/header.php";
             break;
     }
 } else {
