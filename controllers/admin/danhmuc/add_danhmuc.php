@@ -14,8 +14,9 @@
             <span style="color: red"><?php echo isset($error["name_danhmuc"]) ? $error["name_danhmuc"] : '' ?></span>
         </div>
         <div class="mt-4">
+        <a class="btn btn-secondary " href="index_admin.php?act=danhmuc">Danh mục</a>
             <input class="btn btn-success " type="submit" name="themmoi" id="" value="Thêm ">
-            <a class="btn btn-secondary " href="index_admin.php?act=danhmuc">Danh mục</a>
+            
         </div>
     </form>
 </div>

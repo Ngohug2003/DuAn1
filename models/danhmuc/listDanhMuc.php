@@ -28,6 +28,16 @@ function update_danhmuc($id_danhmuc, $name_danhmuc) {
     $sql="update danhmuc set name_danhmuc='".$name_danhmuc."' where id_danhmuc=".$id_danhmuc;
     pdo_execute($sql);
 }
+function check_danhmuc($name_danhmuc){
+    $sql = "SELECT * FROM danhmuc WHERE  name_danhmuc = '$name_danhmuc'";
+    $check_danhmuc = pdo_query_one($sql);
+    return $check_danhmuc ;
+    if(mysqli_num_rows($check_danhmuc) > 0){
+        return true ;
+    }else{
+        return false ;
+    }
+    }
 
 
 ?>
