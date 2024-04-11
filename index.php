@@ -36,32 +36,53 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $filename = $_FILES['image_user']['name'];
                 $target_dir = "./views/assets/img/avatar/";
                 $target_file = $target_dir . basename($_FILES['image_user']['name']);
-                if (empty($filename)) {
-                    $error['image_user'] = "chưa có ảnh";
-                } else {
-                    move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
+                // if (empty($filename)) {
+                //     $error['image_user'] = "chưa có ảnh";
+                // } else {
+                //     move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
+                //     updateUser($id_user, $username_user, $password_user, $fullname_user, $phone_user, $email_user, $diachi_user, $filename, $role);
+                //     echo "<script language='javascript'>alert('Cập nhật tài khoản thành công');</script>";
+                // }
+                    // Kiểm tra xem người dùng có tải lên một tệp mới không
+                    if (!empty($filename)) {
+                        // Nếu có, di chuyển tệp mới vào thư mục và cập nhật tên file
+                        move_uploaded_file($_FILES["image_user"]["tmp_name"], $target_file);
+                    } else {
+                        // Nếu không, giữ lại ảnh cũ bằng cách sử dụng tên file hiện tại
+                        $filename = $_POST['current_image'];
+                    }
+    
+                    // Gọi hàm cập nhật người dùng
                     updateUser($id_user, $username_user, $password_user, $fullname_user, $phone_user, $email_user, $diachi_user, $filename, $role);
                     echo "<script language='javascript'>alert('Cập nhật tài khoản thành công');</script>";
-                }
             }
             include "./views/user.php";
             break;
 
         case 'dangnhap':
+            $error =  [];
             if (isset($_POST['dangnhap']) && $_POST['dangnhap']) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 $check_user = check_user($username, $password);
+                if (empty($username)) {
+                    $error['username_login'] = 'Vui lòng nhập tài khoản';
+                }
+                if (empty($password)) {
+                    $error['password_login'] = 'Vui lòng nhập mật khẩu';
+                }
                 if (is_array($check_user)) {
                     $_SESSION['username'] = $check_user;
                     // check role để vào admin 
+                    
                     if ($check_user['role'] == 1) {
                         header('Location:controllers/admin/index_admin.php');
                     } else {
                         header('Location:index.php');
-                    }
+                    }   
                 } else {
-                    $thongbao = "<script>alert('Username hoặc password không chính xác! Vui lòng kiểm tra lại.')</script>";
+                    // $thongbao = "<script>alert('Username hoặc password không chính xác! Vui lòng kiểm tra lại.')</script>";
+                    $error['thongbao_login'] = "Thông tin tài khoản không chính xác";
                 }
             }
             include "./views/dangnhap.php";
@@ -262,6 +283,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'thanhtoan':
 
+           if(isset($_SESSION['username'])){
             if (isset($_POST['thanhtoan']) && $_POST['thanhtoan']) {
                 // $id_user = $_POST['id_user'];
                 if (isset($_SESSION['username'])) $iduser = $_SESSION['username']['id_user'];
@@ -288,6 +310,9 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 unset($_SESSION['giohang']);
                 $thongbao = "<script>alert('Đặt hàng thành công, vui lòng đợi xác nhận đơn hàng!'); window.location.href = 'index.php?act=user&id_user=" . $iduser . "';</script>";
             }
+           }else{
+            $thongbao = "<script>alert('Vui lòng đăng nhập trước khi thanh toán'); window.location.href = 'index.php?act=dangnhap';</script>";
+           }
             include "./views/thanhtoan.php";
             break;
 
@@ -337,6 +362,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
            
         default:
             include "./views/home.php";
+            include "./views/header.php";
             break;
     }
 } else {

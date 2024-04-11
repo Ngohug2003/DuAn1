@@ -40,7 +40,7 @@
 
                             </ul>
                         </div>
-                        <div class="widget_list widget_filter">
+                        <!-- <div class="widget_list widget_filter">
                             <h3>Tìm sản phẩm theo giá</h3>
                             <form action="#">
                                 <div id="slider-range"></div>
@@ -48,7 +48,7 @@
                                 <input type="text" name="text" id="amount" />
 
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                 </aside>
                 <!--sidebar widget end-->
@@ -90,7 +90,7 @@
                                     </div>
                                     <div class="product_content grid_content">
                                         <div style="height: 80px;" class="product_content-header">
-                                            <h4 class="product_name"><a href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham'] ?>"><?= $sp['name_sanpham'] ?></a></h4>
+                                            <h4 class="product_name"><a href="index.php?act=chitietsanpham&idsp=<?php echo $sp['id_sanpham'] ?>"><?= substr($sp['name_sanpham'], 0, 50) ?><?= strlen($sp['name_sanpham']) > 50 ? '...' : '' ?></a></h4>
                                             <div class="wishlist-btn">
                                                 <a href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
                                             </div>

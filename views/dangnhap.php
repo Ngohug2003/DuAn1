@@ -31,12 +31,13 @@
                         <p>
                             <label>Mật khẩu<span>*</span></label>
                             <input type="password" name="password">
+                            <span style="color: red"><?php echo isset($error["password_login"]) ? $error["password_login"] : '' ?></span>
                         </p>
                         <div class="login_submit">
                             <a href="index.php?act=quenmk">Quên mật khẩu</a>
                             <!-- <button name="dangnhap" type="submit">Đăng nhập</button> -->
                             <input type="submit" style="background-color: #09c6ab;" class="btn bg-yellowhung text-uppercase text-white me-3" value="Đăng nhập" name="dangnhap">
-                            <span style="color: red"><?php echo isset($error["password_login"]) ? $error["password_login"] : '' ?></span>
+                            <span style="color: red"><?php echo isset($error["thongbao_login"]) ? $error["thongbao_login"] : '' ?></span>
                         </div>
 
                     </form>

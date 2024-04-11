@@ -78,13 +78,8 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                             <li><a href="index.php">Trang Chủ</a>
 
                                             </li>
-                                            <li><a href="index.php?act=sanpham">Sản Phẩm<i class="fa fa-angle-down"></i></a>
-                                                <ul class="sub_menu pages">
-                                                    <li><a href="index.php?act=sanpham&id_danhmuc=1">Macbook</a></li>
-                                                    <li><a href="index.php?act=sanpham&id_danhmuc=2">HP</a></li>
-
-                                                    <li><a href="index.php?act=sanpham&id_danhmuc=3">Asus</a></li>
-                                                </ul>
+                                            <li><a href="index.php?act=sanpham">Sản Phẩm</a>
+                                              
                                             </li>
                                             <li><a href="#">Tin tức</a>
                                             </li>

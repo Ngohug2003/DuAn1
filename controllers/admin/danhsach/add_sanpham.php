@@ -14,6 +14,8 @@
         <div class="mb-3">
             <label for="">Ảnh</label>
             <input name="image_sanpham" value="" type="file" class="form-control" aria-label="file example" >
+            <span style="color: red"><?php echo isset($error['image_sanpham']['required']) ? $error['image_sanpham']['required'] : '' ?></span>
+
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Subtitle</label>
@@ -36,8 +38,9 @@
 
         <!-- sumbit  -->
         <div class="mt-4">
+        <a class="btn btn-secondary " href="index_admin.php?act=sanpham">Danh Sách</a>
             <input class="btn btn-success " type="submit" name="themsp" id="" value="Thêm ">
-            <a class="btn btn-secondary " href="index_admin.php?act=sanpham">Danh Sách</a>
+          
         </div>
     </form>
 </div>

@@ -4,6 +4,7 @@ ob_start();
 
 // include ".././../global.php";
 include "../../models/connect.php";
+include "../../models/pdo.php";
 include "../../models/user/taikhoan.php";
 include "../../models/sanpham/list_sanpham.php";
 include "../../models/binhluan/binhluan.php";
@@ -34,7 +35,11 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 // Gọi hàm
                 if ((empty($name_danhmuc))) {
                     $error['name_danhmuc'] = "Vui lòng nhập danh mục";
-                } else {
+                }
+                if(check_danhmuc($name_danhmuc)){
+                    $error['name_danhmuc'] = "Không được trùng tên danh mục";
+                }
+                if(!$error){
                     insert_danhmuc($name_danhmuc);
                     $thongbao = "<script language='javascript'>alert('Thêm danh mục thành công');
                     window.location='index_admin.php?act=adddm';</script>";
@@ -67,11 +72,22 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             if (isset($_POST['update']) && ($_POST['update'])) {
                 $name_danhmuc = $_POST['name_danhmuc'];
                 $id_danhmuc = $_POST['id_danhmuc'];
-                update_danhmuc($id_danhmuc, $name_danhmuc);
-                $dm = loadone_danhmuc($id_danhmuc);
-                $thongbao = "Cập nhật thành công";
-                echo "<script>var successMessage = '$thongbao';</script>";
+
+                if ((empty($name_danhmuc))) {
+                    $error['name_danhmuc'] = "Vui lòng nhập danh mục";
+                }
+                if(check_danhmuc($name_danhmuc)){
+                    $error['name_danhmuc'] = "Không được trùng tên danh mục";
+                }
+                if(!$error){
+                    update_danhmuc($id_danhmuc, $name_danhmuc);
+                    $dm = loadone_danhmuc($id_danhmuc);
+                    $thongbao = "Cập nhật thành công";
+                    echo "<script>var successMessage = '$thongbao';</script>";
+                }
+               
             }
+            $dm = loadone_danhmuc($id_danhmuc);
             $danhmuc =  getListDanhMuc();
             include "../admin/danhmuc/edit.php";
             break;
@@ -106,13 +122,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 }
                 if (empty($gia_sanpham)) {
                     $error['gia_sanpham']['required'] = "Không được bỏ trống giá";
-                } else {
-                    if (!is_numeric($gia_sanpham) || $sanpham <= 0 || floor($gia_sanpham) != $gia_sanpham) {
-                        $error['gia_sanpham']['required'] = "Giá tiền phải nguyên dương";
-                    }
-                }
+                } 
+                if (!is_numeric($gia_sanpham) || $gia_sanpham <= 0 || floor($gia_sanpham) != $gia_sanpham) {
+                    $error['gia_sanpham']['required'] = "Giá tiền phải nguyên dương";
+                }        
                 if (empty($filename)) {
-                    $error['image_sanpham'] = "chưa upload";
+                 $error['image_sanpham']['required']  = "Chưa upload ảnh sản phẩm";
                 } else {
                     if (move_uploaded_file($_FILES["image_sanpham"]["tmp_name"], $target_file)) {
                     } else {
@@ -151,7 +166,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $target_file = $target_dir . basename($_FILES['image_sanpham']['name']);
                 $subtitle_sanpham = $_POST['subtitle_sanpham'];
                 $description_sanpham = $_POST['description_sanpham'];
-                $danhmuc = $_POST['danhmuc'];
+                $danhmuc = $_POST['danhmuc'];             
                 if (!empty($filename)) {
                     // Nếu có, di chuyển tệp mới vào thư mục và cập nhật tên file
                     move_uploaded_file($_FILES["image_sanpham"]["tmp_name"], $target_file);

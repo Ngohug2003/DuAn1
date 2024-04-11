@@ -15,9 +15,10 @@
             <span style="color: red"><?php echo isset($error["name_danhmuc"]) ? $error["name_danhmuc"] : '' ?></span>
         </div>
         <div class="mt-4">
-            <input class="btn btn-success " type="submit" name="update" id="" value="Cập nhật ">
-            <input class="btn btn-warning " type="reset" value="Nhập Lại" name="" id="">
-            <a class="btn btn-secondary " href="index_admin.php?act=danhmuc">Danh mục</a>
+             <a class="btn btn-secondary " href="index_admin.php?act=danhmuc">Danh mục</a>
+             <input class="btn btn-warning " type="reset" value="Nhập Lại" name="" id="">
+             <input class="btn btn-success " type="submit" name="update" id="" value="Cập nhật ">
+            
         </div>
         <div class="mt-2"> <span  style="color: green"><?php echo isset($thongbao) ? $thongbao : '' ?></span></div>
        

@@ -85,6 +85,7 @@
                                     <div class="account_login_form">
                                         <form action="" method="post" enctype="multipart/form-data"> <br>
                                             <img style="height: 70px; border-radius: 50%;" src="./views/assets/img/avatar/<?= $one_user['image_user'] ?>" alt="Avatar"><br>
+                                            <input type="hidden" name="current_image" value="<?= $one_user['image_user'] ?>" id="">
                                             <label>Avatar</label>
                                             <input type="file" name="image_user" id="">
                                             <label>Họ và tên</label>
