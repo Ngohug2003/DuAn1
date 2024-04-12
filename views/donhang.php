@@ -54,7 +54,7 @@
                                                 <?php else : ?>
                                                     <!-- <a disab href="#">Hello</i></a> -->
                                                     <?php $trangthaidonhang = trangThaiDonHang($listDonHang['trangthaidonhang']);
-                                                     $mau = ($listDonHang['trangthaidonhang'] == 'Giao Hàng Thành Công') ? '' : 'green';
+                                                     $mau = ($listDonHang['trangthaidonhang'] == 'Giao Hàng Thành Công') || ($listDonHang['trangthaidonhang'] == 'Đang vận chuyển') || ($listDonHang['trangthaidonhang'] == 'Đã xác nhận')  ? '' : 'green'; 
                                                     ?>
 
                                                     <?php ?>

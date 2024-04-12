@@ -358,6 +358,16 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
 
             // include "./views/giohang.php";
             break;
+            case 'lienhe':
+           
+    
+                include "./views/lienhe.php";
+                break;
+                case 'gioithieu':
+           
+    
+                    include "./views/gioithieu.php";
+                    break;
             // thống kê
            
         default:

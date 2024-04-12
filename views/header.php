@@ -83,8 +83,8 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                             </li>
                                             <li><a href="#">Tin tức</a>
                                             </li>
-                                            <li><a href="gioithieu.html">Giới Thiệu</a></li>
-                                            <li><a href="lienhe.html">Liên Hệ</a></li>
+                                            <li><a href="index.php?act=gioithieu">Giới Thiệu</a></li>
+                                            <li><a href="index.php?act=lienhe">Liên Hệ</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -125,7 +125,7 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                                 </div>
                             </div>
                             </li>
-                            <li class="mini_cart_wrapper"><a href="index.php?act=giohang"><img src="./views/assets/img/icon/icon-cart.png" alt=""> <span class="item_count">2</span></a>
+                            <li class="mini_cart_wrapper"><a href="index.php?act=giohang"><img src="./views/assets/img/icon/icon-cart.png" alt=""> <span class="item_count"></span></a>
                                 <!--mini cart-->
                                 <!--mini cart end-->
 
@@ -164,9 +164,9 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-7">
                                 <div class="slider_content content_left">
-                                    <h1 style="color:#ffff"> Perfect fitting custom</h1>
+                                    <!-- <h1 style="color:#ffff"> Perfect fitting custom</h1>
                                     <h2 style="color:#ffff">Men's suits & shirts</h2>
-                                    <a class="button" href="shop.html">đọc thêm</a>
+                                    <a class="button" href="shop.html">đọc thêm</a> -->
                                 </div>
                             </div>
                         </div>
@@ -178,9 +178,9 @@ if (isset($_GET['act']) && ($_GET['act'] == 'dangnhap' || $_GET['act'] == 'chiti
                         <div class="row">
                             <div class="col-lg-7 offset-lg-5 col-md-7 offset-md-5 col-sm-7 offset-sm-5">
                                 <div class="slider_content content_right">
-                                    <h1 style="color:#ffff"> Bayern Lookbook</h1>
+                                    <!-- <h1 style="color:#ffff"> Bayern Lookbook</h1>
                                     <h2>30% of all Women's</h2>
-                                    <a class="button" href="shop.html">đọc thêm</a>
+                                    <a class="button" href="shop.html">đọc thêm</a> -->
                                 </div>
                             </div>
                         </div>

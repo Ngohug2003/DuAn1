@@ -29,8 +29,9 @@
                     $email_user = $_SESSION['username']['email_user'];
                     $id_user = $_SESSION['username']['id_user'];
                 }else{
-                    $username_user = "";
+                    $fullname_user = "";
                     $diachi_user = "" ;
+                    $phone_user = "" ;
                     $email_user = "";
                 }
                 

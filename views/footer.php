@@ -93,6 +93,9 @@
 <!-- JS
 ============================================ -->
 <!--jquery min js-->
+<script src="https://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.22&amp;key=AIzaSyChs2QWiAhnzz0a4OEhzqCXwx_qA9ST_lE"></script>
+<script  src="https://www.google.com/jsapi"></script>
+<script src="assets/js/map.js"></script>
 <script src="./views/assets/js/vendor/jquery-3.4.1.min.js"></script>
 <!--popper min js-->
 <script src="./views/assets/js/popper.js"></script>
